@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_price_demand
+    description: "Cleaned, typed price & demand intervals with a settlement-resolution flag."
+    columns:
+      - name: region
+        description: "NEM region id."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["NSW1", "QLD1", "VIC1", "SA1", "TAS1"]
+      - name: settlement_date
+        description: "Interval-ending timestamp."
+        data_tests:
+          - not_null
+      - name: rrp_aud_mwh
+        description: "Regional Reference Price, A$/MWh."
+        data_tests:
+          - not_null
+      - name: total_demand_mw
+        description: "Operational demand, MW."
+        data_tests:
+          - not_null
+      - name: resolution_min
+        description: "Native settlement resolution in minutes (30 pre-Oct-2021, else 5)."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [5, 30]
+                quote: false
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, settlement_date]
+
+  - name: stg_dispatch_scada
+    description: "Cleaned per-DUID 5-minute generation (non-null SCADA values)."
+    columns:
+      - name: duid
+        description: "Dispatchable unit identifier."
+        data_tests:
+          - not_null
+      - name: settlement_date
+        description: "Interval-ending timestamp."
+        data_tests:
+          - not_null

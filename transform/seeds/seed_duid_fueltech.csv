@@ -1,0 +1,569 @@
+duid,station_name,region,dispatch_type,fuel_source,technology,fueltech,reg_cap_mw
+-,Victoria Mill,QLD1,Generating Unit,Bagasse,Steam Super Critical,bioenergy,-
+ADPBA1,Adelaide Desalination Plant,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,7.76
+ADPMH1,Adelaide Desalination Plant,SA1,Generating Unit,Water,Run of River,hydro,1.44
+ADPPV1,Adelaide Desalination Plant,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,24.75
+ADPPV2,Adelaide Desalination Plant,SA1,Generating Unit,Solar,Photovoltaic Flat panel,solar,0.2
+ADPPV3,Adelaide Desalination Plant,SA1,Generating Unit,Solar,Photovoltaic Flat panel,solar,0.02
+AGLHAL,Hallett Power Station,SA1,Generating Unit,Natural Gas / Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,217
+AGLSOM,Somerton Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,170
+ALDGASF1,Aldoga Solar Farm,QLD1,Generating Unit,Solar,Photovoltalic Tracking Flat Panel,solar,535.213
+ANGAST1,Angaston Power Station,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,50
+APPIN,Appin Power Plant,NSW1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,55.6
+ARWF1,Ararat Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,241.59
+AVLSF1,Avonlie Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,254.1
+BAKING1,Baking Board Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,17.5
+BALB1,Ballarat Battery Energy Storage System,VIC1,Bidirectional Unit,Grid,Battery,battery,30
+BALDHWF1,Bald Hills Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,106.6
+BANGOWF1,Bango 973 Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,159
+BANGOWF2,Bango 999 Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,84.8
+BANN1,Bannerton Solar Park,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,100
+BAPS,Banimboola Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,12.85
+BARCALDN,Barcaldine Power Station,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,37
+BARCSF1,Barcaldine Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,20
+BARKIPS1,Barker Inlet Power Station,SA1,Generating Unit,Natural Gas,Compression Reciprocating Engine,gas_recip,211
+BARRON-1,Barron Gorge Power Station,QLD1,Generating Unit,Water,Run of River,hydro,30
+BARRON-2,Barron Gorge Power Station,QLD1,Generating Unit,Water,Run of River,hydro,30
+BASTYAN,Bastyan Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,79.9
+BBATTERY1,Bouldercombe Battery Project,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,67
+BBTHREE1,Bell Bay Three Power Station,TAS1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,35
+BBTHREE2,Bell Bay Three Power Station,TAS1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,35
+BBTHREE3,Bell Bay Three Power Station,TAS1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,35
+BDL01,Bairnsdale Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,46
+BDL02,Bairnsdale Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,46
+BDONGHYD,Burrendong Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,19
+BERYLSF1,Beryl Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,98
+BHB1,Broken Hill Battery Energy Storage System,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,66
+BLNKTAS,Basslink HVDC Link,TAS1,Generating Unit,,,other,478
+BLNKVIC,Basslink HVDC Link,VIC1,Generating Unit,,,other,594
+BLOWERNG,Blowering Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,80
+BLUEGSF1,Blue Grass Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,183
+BLUFF1,The Bluff Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,52.5
+BLYTHB1,Blyth Battery Energy Storage System,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,281
+BNGSF1,Bungala One Solar Farm,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,135
+BNGSF2,Bungala Two Solar Farm,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,135
+BOCORWF1,Boco Rock Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,113.18
+BODWF1,Bodangora Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,113.19
+BOLIVAR1,Bolivar Waste Water Treatment Plant,SA1,Generating Unit,Sewerage / Waste Water,Pump Storage,hydro,9.9
+BOLIVPS1,Bolivar Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,128
+BOMENSF1,Bomen Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,121
+BOWWBA1,Bolivar Waste Water Treatment Plant,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,3
+BOWWDG1,Bolivar Waste Water Treatment Plant,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,0.66
+BOWWPV1,Bolivar Waste Water Treatment Plant,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,8.25
+BPLANDF1,Browns Plains Landfill Gas PS,QLD1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,2
+BRAEMAR1,Braemar Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,168
+BRAEMAR2,Braemar Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,168
+BRAEMAR3,Braemar Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,168
+BRAEMAR5,Braemar 2 Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,173
+BRAEMAR6,Braemar 2 Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,173
+BRAEMAR7,Braemar 2 Power Station,QLD1,Generating Unit,Coal Seam Methane,Open Cycle Gas turbines (OCGT),coal_black,173
+BRDDBES1,Broadsound Energy Park,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,240
+BRDDSF01,Broadsound Energy Park,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,368
+BRNDBES1,Brendale BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,215
+BROKENH1,Broken Hill Solar Plant,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,53.76
+BROOKLYN,Brooklyn LFG U1-3,VIC1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,2.83
+BROWNMT,Brown Mountain Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,5
+BRYB1WF1,Berrybank Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,180.6
+BRYB2WF2,Berrybank 2 Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,109
+BULBES1,Bulgana Green Power Hub,VIC1,Bidirectional Unit,Grid,Battery,battery,24
+BULGANA1,Bulgana Green Power Hub,VIC1,Generating Unit,Wind,Wind - Onshore,wind,204
+BUNGAMB1,Bungama Battery Energy Storage System,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,217
+BURRIN,Burrinjuck Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,34
+BUSF1,Bundaberg Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,101
+BUTLERSG,Butlers Gorge Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,14.4
+BW01,Bayswater Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+BW02,Bayswater Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+BW03,Bayswater Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+BW04,Bayswater Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+BWTR1,Broadwater Power Station,NSW1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,38
+CALL_B_1,Callide Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+CALL_B_2,Callide Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+CAPBES1,Capital Battery,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,125
+CAPTL_WF,Capital Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,140
+CATHROCK,Cathedral Rocks,SA1,Generating Unit,Wind,Wind - Onshore,wind,66
+CBWF1,Coonooer Bridge Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,19.8
+CBWWBA1,Christies Beach Wastewater Treatment Plant,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,2.16
+CBWWBG1,Christies Beach Wastewater Treatment Plant,SA1,Generating Unit,Biogas - sludge,Compression Reciprocating Engine,bioenergy,0.664
+CBWWDG1,Christies Beach Wastewater Treatment Plant,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,2
+CBWWDG2,Christies Beach Wastewater Treatment Plant,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,0.72
+CBWWPV1,Christies Beach Wastewater Treatment Plant,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,2.75
+CBWWPV2,Christies Beach Wastewater Treatment Plant,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,1.08
+CESF1,Capital East Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,0.205
+CETHANA,Cethana Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,85
+CG1,Colongra Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,181
+CG2,Colongra Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,181
+CG3,Colongra Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,181
+CG4,Colongra Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,181
+CGBESS01,Clements Gap BESS,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,90.5
+CHALLHWF,Challicum Hills Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,52.5
+CHBESS1,"Chinchilla BESS, Units 1-80",QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,134
+CHILDSF1,Childers Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,64.38
+CHPSTWF1,Chepstowe Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,6.15
+CHYTWF1,Cherry Tree Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,57.6
+CLARESF1,Clare Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,110.262
+CLAYTON,Clayton Landfill Gas Power Station,VIC1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,11
+CLEMGPWF,Clements Gap Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,57
+CLERMSF1,Clermont Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,92.5
+CLOVER,Clover Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,37.5
+CLRKCWF1,Clarke Creek Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,345.5
+CLRKCWF2,Clarke Creek Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,103.5
+CLUNY,Cluny Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,19
+CNUNDAWF,Canunda Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,46
+CODRNGTON,Codrington Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,18.2
+COHUNSF1,Cohuna Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,31
+COLEASF1,Coleambally Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,180
+COLUMSF1,Columboola Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,217
+COLWF01,Collector Wind Farm 1,NSW1,Generating Unit,Wind,Wind - Onshore,wind,226
+CONDONG1,Condong Power Station,NSW1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,30
+COOPGWF1,Coopers Gap Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,452
+COPTNHYD,Copeton Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,22.5
+CPP_3,Callide C Nett Off,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,466
+CPP_4,Callide C Nett Off,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,420
+CPSA,Condamine Power Station A,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,143
+CROOKWF2,Crookwell 2 Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,96.04
+CROOKWF3,Crookwell 3 Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,57
+CROWLWF1,Crowlands Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,79.95
+CRURWF1,Crudine Ridge Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,141
+CRWARP1,Carwarp Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,186
+CRWASF1,Corowa Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,36
+CSPVPS1,Collinsville Solar PV Power Station,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,42
+CTHLWF1,Cattle Hill Wind Farm,TAS1,Generating Unit,Wind,Wind - Onshore,wind,148
+CULLRGWF,Cullerin Range Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,30
+CUSF1,Culcairn Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,466
+DALNTH1,Dalrymple North BESS,SA1,Bidirectional Unit,Grid,Battery,battery,30
+DARLSF1,Darlington Point Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,324
+DARTM1,Dartmouth Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,185
+DAYDSF1,Daydream Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,167
+DDPS1,Darling Downs Power Station,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,644
+DDSF1,Darling Downs Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,121
+DEVILS_G,Devils Gate Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,60
+DIAPURWF1,Diapur Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,8
+DPNTB1,Darlington Point Energy Storage System,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,25
+DRYCGT1,Dry Creek Gas Turbine Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,52
+DRYCGT2,Dry Creek Gas Turbine Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,52
+DRYCGT3,Dry Creek Gas Turbine Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,52
+DULAWF1,Dulacca Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,180
+DUNDWF1,Dundonnell Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,168
+DUNDWF2,Dundonnell Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,46
+DUNDWF3,Dundonnell Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,121
+EASTCRK,Eastern Creek LFG PS Units 1-4,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,5.056
+EASTCRK2,Eastern Creek 2 Gas Utilisation Facility,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,6.738
+EDENVSF1,Edenvale Solar Park,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,180
+EILDON1,Eildon Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,60
+EILDON2,Eildon Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,60
+EILDON3,Eildon Power Station,VIC1,Generating Unit,Water,Run of River,hydro,4.5
+ELAINWF1,Elaine Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,83.6
+EMERASF1,Emerald Solar Park,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,88
+ER01,Eraring Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,720
+ER02,Eraring Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,720
+ER03,Eraring Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,720
+ER04,Eraring Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,720
+ERB01,Eraring Battery Energy Storage System,NSW1,Bidirectional Unit,Grid,Battery,battery,614.6
+ERGT01,Eraring Power Station,NSW1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,41.5
+FINLYSF1,Finley Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,162.36
+FISHER,Fisher Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,43.2
+FLYCRKWF,Flyers Creek Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,145
+FNWF1,Ferguson North Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,4
+FSWF1,Ferguson South Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,8
+GANGARR1,Gangarri Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,162
+GANNB1,Gannawarra Energy Storage System,VIC1,Bidirectional Unit,Grid,Battery,battery,30
+GANNSF1,Gannawarra Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,55
+GB01,Broken Hill Gas Turbines,NSW1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+GERMCRK,German Creek Power Station,QLD1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,44.976
+GESF1,Glenellen Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,264
+GIRGSF,Girgarre Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,93.31
+GLBWNHYD,Glenbawn Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,5.5
+GLENMAG1,Glenmaggie Hydro Power Station,VIC1,Generating Unit,Water,Run of River,hydro,3.8
+GLENNCRK,Glennies Creek Power Station,NSW1,Generating Unit,Waste Coal Mine Gas,Compression Reciprocating Engine,coal_black,12.78
+GLENSF1,Glenrowan Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,126
+GLRWNSF1,Glenrowan West Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,132
+GNNDHSF1,Gunnedah Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,144
+GOESF1,Goorambat East Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,348.6
+GOONSF1,Goonumbla Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,85
+GORDON,Gordon Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,432
+GPWFEST1,Golden Plains Wind Farm East,VIC1,Generating Unit,Wind,Wind - Onshore,wind,248
+GPWFEST2,Golden Plains Wind Farm East,VIC1,Generating Unit,Wind,Wind - Onshore,wind,260.4
+GPWFEST3,Golden Plains Wind Farm East,VIC1,Generating Unit,Wind,Wind - Onshore,wind,248
+GPWFWST1,Golden Plains Wind Farm West,VIC1,Generating Unit,Wind,Wind - Onshore,wind,266
+GPWFWST2,Golden Plains Wind Farm West,VIC1,Generating Unit,Wind,Wind - Onshore,wind,310
+GRANGEAV,Grange Avenue Landfill Gas Power Station,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,2
+GRANWF1,Granville Harbour Wind Farm,TAS1,Generating Unit,Wind,Wind - Onshore,wind,110
+GREENB1,Greenbank BESS,QLD1,Bidirectional Unit,Grid,Battery,battery,259.2
+GRIFSF1,Griffith Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,27.2
+GROSV1,Grosvenor 1 Waste Coal Mine Gas Power Station,QLD1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,21.287
+GROSV2,Grosvenor 2,QLD1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,15.205
+GSTONE1,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSTONE2,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSTONE3,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSTONE4,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSTONE5,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSTONE6,Gladstone Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,280
+GSWF1A,Goyder South Wind Farm 1A,SA1,Generating Unit,Wind,Wind - Onshore,wind,209
+GSWF1B1,Goyder South Wind Farm 1B,SA1,Generating Unit,Wind,Wind - Onshore,wind,203
+GULLRSF1,Gullen Range Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,10
+GULLRWF1,Gullen Range Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,165
+GULLRWF2,Gullen Range Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,110
+GUNNING1,Gunning Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,46.5
+GUSF1,Gunsynd Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat panel,solar,122.775
+GUTHEGA,Guthega Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,60
+HALAMRD1,Hallam Road Renewable Energy Facility,VIC1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,8.984
+HALLWF1,Hallett 1 Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,94.5
+HALLWF2,Hallett 2 Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,71.4
+HAMISF1,Hamilton Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,57.5
+HASTING1,Hastings Generation Site,VIC1,Generating Unit,Ethane,Open Cycle Gas turbines (OCGT),gas_ocgt,14.817
+HASTING2,Hastings Generation Site,VIC1,Generating Unit,Ethane,Open Cycle Gas turbines (OCGT),gas_ocgt,14.817
+HASTING3,Hastings Generation Site,VIC1,Generating Unit,Ethane,Open Cycle Gas turbines (OCGT),gas_ocgt,14.817
+HAUGHT11,Haughton Solar Farm Stage 1,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,132
+HAYMSF1,Hayman Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,57.75
+HBESS1,Hazelwood Battery Energy Storage System,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,200
+HD1WF1,Hawkesdale Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,96.6
+HDWF1,Hornsdale Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,102.4
+HDWF2,Hornsdale Wind Farm 2,SA1,Generating Unit,Wind,Wind - Onshore,wind,102.4
+HDWF3,Hornsdale Wind Farm 3,SA1,Generating Unit,Wind,Wind - Onshore,wind,112
+HEPWIND1,Hepburn Community Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,4.1
+HEZ1,Hunter Economic Zone,NSW1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,28
+HILLSTN1,Hillston Sun Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,110
+HLMSEW01,South East Water - Halllam Hydro Plant,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,0.25
+HPR1,Hornsdale Power Reserve,SA1,Bidirectional Unit,Wind,Battery and Inverter,battery,150
+HUGSF1,Hughenden Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,20.97
+HUMENSW,Hume (NSW) Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,29
+HUMEV,Hume (Vic) Hydro Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,29
+HUNTER1,Hunter Power Station,NSW1,Generating Unit,Natrual Gas/ Diesel,OCGT,gas_ocgt,375
+HUNTER2,Hunter Power Station,NSW1,Generating Unit,Natrual Gas/ Diesel,OCGT,gas_ocgt,375
+HVWWBA1,Happy Valley Water Treatment Plant,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,5
+HVWWPV1,Happy Valley Water Treatment Plant,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,11
+ICSM,ISIS Central Sugar Mill Co-generation Plant,QLD1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,25
+INVICTA,Invicta Sugar Mill,QLD1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,50.3
+JACKSGUL,Jacks Gully Landfill Gas Power Station,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Compression Reciprocating Engine,bioenergy,2.3
+JBUTTERS,John Butters Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,144
+JEMALNG1,Jemalong Solar Project,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,55
+JLA01,"Jeeralang ""A"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,51
+JLA02,"Jeeralang ""A"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,51
+JLA03,"Jeeralang ""A"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,51
+JLA04,"Jeeralang ""A"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,51
+JLB01,"Jeeralang ""B"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,76
+JLB02,"Jeeralang ""B"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,76
+JLB03,"Jeeralang ""B"" Power Station",VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,76
+JNDABNE1,Jindabyne Small Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,1.1
+JOUNAMA1,Jounama Small Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,14
+JUNEESF1,Junee Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,36
+KABANWF1,Kaban Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,156
+KAREEYA1,Kareeya Power Station,QLD1,Generating Unit,Water,Run of River,hydro,21
+KAREEYA2,Kareeya Power Station,QLD1,Generating Unit,Water,Run of River,hydro,21
+KAREEYA3,Kareeya Power Station,QLD1,Generating Unit,Water,Run of River,hydro,21
+KAREEYA4,Kareeya Power Station,QLD1,Generating Unit,Water,Run of River,hydro,21
+KAREEYA5,Kareeya Power Station,QLD1,Generating Unit,Water,Run of River,hydro,7
+KARSF1,Karadoc Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Flat panel,solar,104
+KEEPIT,Keepit Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,6
+KEPBG1,Kennedy Energy Park Battery,QLD1,Generating Unit,Grid,Battery,battery,2
+KEPBL1,Kennedy Energy Park Battery,QLD1,Load,Grid,Battery,battery,2
+KEPSF1,Kennedy Energy Park,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,16
+KEPWF1,Kennedy Energy Park,QLD1,Generating Unit,Wind,Wind - Onshore,wind,43
+KERNGSP1,Kerang Solar Plant,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,37
+KESSB1,Koorangie Energy Storage System,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,185
+KIAMSF1,Kiamal Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,239
+KIATAWF1,Kiata Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,31.05
+KIDSPHG1,Kidston Hydro Project,QLD1,Generating Unit,Water,Pump Storage,hydro,126
+KINGASF1,Kingaroy Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,47
+KPP_1,Kogan Creek Power Station,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,744
+KSP1,Kidston Solar Project Phase One,QLD1,Generating Unit,Solar,Photovoltaic Flat panel,solar,50
+LADBROK1,Ladbroke Grove Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,40
+LADBROK2,Ladbroke Grove Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,40
+LANCSF1,Lancaster Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,94
+LBB1,Lake Bonney BESS1,SA1,Bidirectional Unit,Grid,Battery,battery,25
+LDBESS1,Liddell Battery Energy Storage System,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,755.08
+LEM_WIL,Lemonthyme / Wilmot Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,81.6
+LGAPBS1,Lincoln Gap Wind Farm Battery,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,10.8
+LGAPWF1,Lincoln Gap Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,126
+LGAPWF2,Lincoln Gap Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,86
+LILYSF1,Lilyvale Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,118
+LIMBESS1,Limondale Battery,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,141
+LIMOSF11,Limondale Solar Farm 1,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,275
+LIMOSF21,Limondale Solar Farm 2,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,38
+LI_WY_CA,Catagunya / Liapootah / Wayatinah Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,173.7
+LKBONNY1,Lake Bonney Wind Farm Stage 1,SA1,Generating Unit,Wind,Wind - Onshore,wind,80.5
+LKBONNY2,Lake Bonney Stage 2 Windfarm,SA1,Generating Unit,Wind,Wind - Onshore,wind,159
+LKBONNY3,Lake Bonney Stage 3 Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,39
+LK_ECHO,Lake Echo Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,32.4
+LNGS1,Laverton North Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,156
+LNGS2,Laverton North Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,156
+LONSDALE,Lonsdale Power Station,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,20
+LOYYB1,Loy Yang B Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,500
+LOYYB2,Loy Yang B Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,500
+LRSF1,Longreach Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,17
+LUCAS2S2,Lucas Heights 2 Power Station,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Compression Reciprocating Engine,bioenergy,4.6
+LUCASHGT,Lucas Heights 2 Power Station,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,12.65
+LVES1,Latrobe Valley BESS,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,140
+LYA1,Loy Yang A Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,560
+LYA2,Loy Yang A Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,530
+LYA3,Loy Yang A Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,560
+LYA4,Loy Yang A Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,560
+MACARTH1,Macarthur Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,420
+MACKNTSH,Mackintosh Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,79.9
+MANNSF2,Mannum 2 Solar Farm,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,37
+MANNUMB1,Mannum Battery Energy Storage System,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,131.7
+MANSLR1,Manildra solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,50
+MAPS2PV1,"Mannum - Adelaide Pipeline Pumping Station No 2, PV Units 1-6",SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,16.5
+MAPS3PV1,"Mannum - Adelaide Pipeline Pumping Station No 3, PV Units 1-6",SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,16.5
+MAROOWF1,Maroona Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,6.8
+MARYRSF1,Maryrorough Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,33
+MBAHNTH,Moranbah North Waste Coal Mine Gas Power Station,QLD1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,63.42
+MBPS2PV1,Murray Bridge-Onkaparinga Pipeline Pumping Station No 2,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,13.75
+MCINTYR1,MacIntyre Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,923
+MCKAY1,Bogong / Mackay Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,300
+MEADOWBK,Meadowbank Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,40
+MERCER01,Mt Mercer Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,131.2
+METZSF1,Metz Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,135
+MEWF1,Mount Emerald Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,180
+MIDDLSF1,Middlemount Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,30
+MINTARO,Mintaro Gas Turbine Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,90
+MLB01,Mortlake Battery Energy Storage System,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,440
+MLSP1,Mugga Lane Solar Park,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,12
+MLWF1,Mortons Lane Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,20
+MOKOSF1,Mokoan Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,58
+MOLNGSF1,Molong Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,36
+MOORABS1,Moorabool Wind Farm,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,2
+MOORAWF1,Moorabool Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,312
+MORANBAH,Moranbah Generation Project,QLD1,Generating Unit,Coal Seam Methane,Compression Reciprocating Engine,coal_black,12.56
+MOREESF1,Moree Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,57.064
+MORTLK11,Mortlake Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,283
+MORTLK12,Mortlake Power Station,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,283
+MOUSF1,Moura Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,99
+MP1,Mt Piper Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,700
+MP2,Mt Piper Power Station,NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,700
+MPP_1,Millmerran Power Plant,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,426
+MPP_2,Millmerran Power Plant,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,426
+MREHA1,Melbourne Renewable Energy Hub Connection A1,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,215.8
+MREHA2,Melbourne Renewable Energy Hub Connection A2,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,215.8
+MREHA3,Melbourne Renewable Energy Hub Connection A3,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,215.4
+MRNBESS1,Mornington BESS,VIC1,Bidirectional Unit,Grid,Battery,battery,336
+MRTLSWF1,Mortlake South Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,157.5
+MSTUART1,Mt Stuart Power Station,QLD1,Generating Unit,Kerosene,Open Cycle Gas turbines (OCGT),gas_ocgt,144
+MSTUART2,Mt Stuart Power Station,QLD1,Generating Unit,Kerosene,Open Cycle Gas turbines (OCGT),gas_ocgt,144
+MSTUART3,Mt Stuart Power Station,QLD1,Generating Unit,Kerosene,Open Cycle Gas turbines (OCGT),gas_ocgt,131
+MTGELWF1,Mt Gellibrand Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,138
+MTMILLAR,Mt Millar Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,70
+MUCRKSF1,Munna Creek Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,154
+MULWASF1,Mulwala Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,31
+MURRAY,Murray Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,1500
+MUSSELR1,Musselroe Wind Farm,TAS1,Generating Unit,Wind,Wind - Onshore,wind,168
+MUWAWF1,Murra Warra Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,231.8
+MUWAWF2,Murra Warra Wind Farm Stage 2,VIC1,Generating Unit,Wind,Wind - Onshore,wind,209
+MWPS1PV1,Morgan-Whyalla Pipeline Pumping Station No 1,SA1,Generating Unit,solar,Photovoltaic Tracking Flat panel,solar,5.5
+MWPS2PV1,Morgan-Whyalla Pipeline Pumping Station No 2,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,5.5
+MWPS3PV1,Morgan-Whyalla Pipeline Pumping Station No 3,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,7.5
+MWPS4PV1,Morgan-Whyalla Pipeline Pumping Station No 4,SA1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,5.5
+NASF1,Narromine Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,10
+NBHWF1,North Brown Hill Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,132.3
+NESBESS1,New England BESS,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,126
+NESBESS2,New England BESS,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,126
+NEVERSF1,Nevertire Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,132
+NEWENSF1,New England Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,235
+NEWENSF2,New England Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,235
+NPS,Newport Power Station,VIC1,Generating Unit,Natural Gas,Steam Sub-Critical,gas_steam,500
+NUMURSF1,Numurkah Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,112
+NYNGAN1,Nyngan Solar Plant,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,102.141
+OAKEY1,Oakey Power Station,QLD1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,141
+OAKEY1SF,Oakey 1 Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,30
+OAKEY2,Oakey Power Station,QLD1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,141
+OAKEY2SF,Oakey 2 Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,65
+OAKLAND1,Oaklands Hill Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,67
+OAKY2,Oaky Creek 2,QLD1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,15
+OAKYCREK,Oaky Creek Power Station,QLD1,Generating Unit,Coal Seam Methane,Compression Reciprocating Engine,coal_black,20
+ORABESS1,Orana BESS,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,439
+OSB-AG,Osborne Power Station,SA1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,180
+PALOONA,Paloona Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,28
+PAREPS1,Port Augusta Renewable Energy Park,SA1,Generating Unit,Solar,Photovoltaic Flat panel,solar,99
+PAREPW1,Port Augusta Renewable Energy Park,SA1,Generating Unit,Wind,Wind - Onshore,wind,210
+PARSF1,Parkes Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,55
+PIBESS1,Phillip Island BESS,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,7
+PINDARI,Pindari Hydro Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,6.7
+POAT110,Poatina Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,100
+POAT220,Poatina Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,200
+POR01,Port Lincoln Gas Turbine,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+POR03,Port Lincoln Gas Turbine,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,23.5
+PPCCGT,Pelican Point Power Station,SA1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,478
+PTSTAN1,Pt Stanvac Power Station,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,57.6
+PUMP1,Wivenhoe Power Station,QLD1,Load,-,-,other,240
+PUMP2,Wivenhoe Power Station,QLD1,Load,-,-,other,240
+QBYNB1,Queanbeyan BESS,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,10
+QPS1,Quarantine Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,29
+QPS2,Quarantine Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,24
+QPS3,Quarantine Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,24
+QPS4,Quarantine Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,24
+QPS5,Quarantine Power Station,SA1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,128
+QPSFB1,Quorn Park Solar Hybrid,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,96
+QPSFB2,Quorn Park Solar Hybrid,NSW1,Bidirectional Unit,Solar,Battery and Inverter,battery,27
+RACOMIL1,Racecourse Mill Power Station,QLD1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,48
+RANGEB1,Rangebank BESS,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,260
+REECE1,Reece Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,115.6
+REECE2,Reece Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,115.6
+REPULSE,Repulse Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,28
+RESS1,Riverina Energy Storage System 1,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,80
+RIVNB2,Riverena Energy Storage System 2,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,65
+ROMA_7,Roma Gas Turbine Station,QLD1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,40
+ROMA_8,Roma Gas Turbine Station,QLD1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,40
+ROWALLAN,Rowallan Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,10.5
+ROYALLA1,Royalla Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,20
+RPCG,Rocky Point Cogeneration Plant,QLD1,Generating Unit,Bagasse,Steam Sub-Critical,bioenergy,30
+RRSF1,Ross River Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,128
+RUBICON,Rubicon Mountain Streams Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,13
+RUGBYR1,Rugby Run Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,83
+RYANCWF1,Ryan Corner Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,218.4
+RYEPARK1,Rye Park Renewable Energy,NSW1,Generating Unit,Wind,Wind - Onshore,wind,396
+SALTCRK1,Salt Creek Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,54
+SAPHWF1,Sapphire Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,270
+SEBSF1,Sebastopol Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,110
+SHEP1,Shepparton Wastewater Treatment Facility,VIC1,Generating Unit,Sewerage / Waste Water,Compression Reciprocating Engine,hydro,1.1
+SHGEN,Shoalhaven Power Station (Bendeela And Kangaroo Valley Power Station And Pumps),NSW1,Generating Unit,Water,Hydro - Gravity,hydro,240
+SHOAL1,Shoalhaven Starches Cogeneration Plant,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,54
+SHPUMP,Shoalhaven Power Station (Bendeela And Kangaroo Valley Power Station And Pumps),NSW1,Load,-,-,other,240
+SITHE01,Smithfield Energy Facility,NSW1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,125
+SKSF1,South Keswick Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,15
+SMCSF1,Sun Metals Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat panel,solar,143
+SMTHBES1,"Smithfield Battery Energy Storage System, Units 1 - 36",NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,69.4
+SNAPPER1,Snapper Point Power Station,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,154
+SNB01,Supernode BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,337.4
+SNB02,Supernode BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,337.4
+SNOWNTH1,Snowtown Wind Farm Stage 2 North,SA1,Generating Unit,Wind,Wind - Onshore,wind,144
+SNOWSTH1,Snowtown South Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,126
+SNOWTWN1,Snowtown Wind Farm Units 1 And 47,SA1,Generating Unit,Wind,Wind - Onshore,wind,99
+SNOWYP,Tumut 3 Pumps,NSW1,Load,Water,Hydro - Gravity,hydro,600
+SNUG1,Snuggery Power Station,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,63
+SNUG2,Snuggery Power Station,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,21
+SNUG3,Snuggery Power Station,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,21
+SNUGNL1,Snuggery Power Station,SA1,Generating Unit,Diesel,Open Cycle Gas turbines (OCGT),gas_ocgt,21
+SRSF1,Susan River Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat panel,solar,85.26
+STAN-1,Stanwell Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,365
+STAN-2,Stanwell Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,365
+STAN-3,Stanwell Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,365
+STAN-4,Stanwell Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,365
+STAPYLTON1,Stapylton Renewable Energy Facility,QLD1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,3
+STARHLWF,Starfish Hill Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,34.5
+STOCKYD1,Stockyard Hill Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,531
+STUBSF1,Stubbo Solar Farm 1,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,255
+STUBSF2,Stubbo Solar Farm 2,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,248
+STWF1,Silverton Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,198.94
+SUNRSF1,SUNRAYSIA SF,NSW1,Generating Unit,Solar,Photovoltaic Flat panel,solar,228
+SUNTPSF1,Suntop Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,175
+SWANBBF1,Swanbank BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,331.2
+SWAN_E,Swanbank E Power Station,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,385
+TABMILL2,Tableland Mill Unit 2,QLD1,Generating Unit,Bagasse,Steam Super Critical,bioenergy,24
+TAHMOOR1,Tahmoor Waste Coal Mine Gas Power Station,NSW1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,7.042
+TALWA1,Tallawarra Power Station,NSW1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,440
+TALWB1,Tallawarra Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas Turbine (OCGT),gas_ocgt,320
+TARALGA1,Taralga Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,106.8
+TARBESS1,Tarong BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,393
+TARONG#1,Tarong Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+TARONG#2,Tarong Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+TARONG#3,Tarong Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+TARONG#4,Tarong Power Station,QLD1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,350
+TARRALEA,Tarraleah Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,90
+TATIARA1,Tataria Bordertown Plant,SA1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,0.5
+TATURA01,Tatura Biomass Generator,VIC1,Generating Unit,Sewerage / Waste Water,Compression Reciprocating Engine,hydro,1.1
+TB2B1,Tailem Bend 2 Hybrid Renewable Power Station,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,50
+TB2SF1,Tailem Bend 2 Hybrid Renewable Power Station,SA1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,105
+TBSF1,Tailem Bend Solar Project 1,SA1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,108
+TEMPB1,Templers Battery Energy Storage System,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,138
+TGNSS1,Traralgon Network Support Station,VIC1,Generating Unit,Natural Gas,Spark Ignition Reciprocating Engine,gas_recip,10
+THEDROP1,The Drop Power Station,NSW1,Generating Unit,Water,Run of River,hydro,2.5
+TIB1,Torrens Island BESS,SA1,Bidirectional Unit,Grid,Battery and Inverter,battery,250
+TIMWEST,Timboon West Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,7.2
+TITREE,Veolia Ti Tree Bio Reactor,QLD1,Generating Unit,Landfill Methane / Landfill Gas,Compression Reciprocating Engine,bioenergy,2
+TNPS1,Tarong North Power Station,QLD1,Generating Unit,Black Coal,Steam Super Critical,coal_black,443
+TOORAWF,Toora Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,21
+TORRB1,Torrens Island Power Station,SA1,Generating Unit,Natural Gas / Fuel Oil,Steam Sub-Critical,gas_steam,200
+TORRB2,Torrens Island Power Station,SA1,Generating Unit,Natural Gas / Fuel Oil,Steam Sub-Critical,gas_steam,200
+TORRB3,Torrens Island Power Station,SA1,Generating Unit,Natural Gas / Fuel Oil,Steam Sub-Critical,gas_steam,200
+TORRB4,Torrens Island Power Station,SA1,Generating Unit,Natural Gas / Fuel Oil,Steam Sub-Critical,gas_steam,200
+TOWER,Tower Power Plant,NSW1,Generating Unit,Waste Coal Mine Gas,Spark Ignition Reciprocating Engine,coal_black,41.2
+TREVALLN,Trevallyn Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,93
+TRGBESS1,Terang BESS,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,144.4
+TRIBUTE,Tribute Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,82.8
+TULLYSM1,Tully Sugar Mill,QLD1,Generating Unit,Bagasse and Diesel,Steam Super Critical and Compression Reciprocating Engine,bioenergy,32
+TUMUT3,Tumut 3 Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,1500
+TUNGATIN,Tungatinah Power Station,TAS1,Generating Unit,Water,Hydro - Gravity,hydro,125
+TVCC201,Tamar Valley Combined Cycle Power Station,TAS1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,208.6
+TVPP104,Bell Bay Three Power Station,TAS1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,58
+ULPBESS1,Ulinda Park BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,197
+UPPTUMUT,Tumut Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,616
+URANQ11,Uranquinty Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,166
+URANQ12,Uranquinty Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,166
+URANQ13,Uranquinty Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,166
+URANQ14,Uranquinty Power Station,NSW1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,166
+VALDORA1,Valdora Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat panel,solar,15
+VBB1,Victorian Big Battery,VIC1,Bidirectional Unit,Grid,Battery and Inverter,battery,360
+VP5,"Vales Point ""B"" Power Station",NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+VP6,"Vales Point ""B"" Power Station",NSW1,Generating Unit,Black Coal,Steam Sub-Critical,coal_black,660
+VPGS1,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+VPGS2,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+VPGS3,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+VPGS4,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+VPGS5,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+VPGS6,Valley Power Peaking Facility,VIC1,Generating Unit,Natural Gas,Open Cycle Gas turbines (OCGT),gas_ocgt,50
+W/HOE#1,Wivenhoe Power Station,QLD1,Generating Unit,Water,Pump Storage,hydro,285
+W/HOE#2,Wivenhoe Power Station,QLD1,Generating Unit,Water,Pump Storage,hydro,285
+WAGGNSF1,Wagga North Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,55
+WALGRV1,Wallgrove BESS 1,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,50
+WAMBOWF1,Wambo Wind Farm 1,QLD1,Generating Unit,Wind,Wind - Onshore,wind,252
+WAMBOWF2,Wambo Wind Farm 2,QLD1,Generating Unit,Wind,Wind - Onshore,wind,254
+WANDB1,Wandoan Battery Energy Storage System (BESS),QLD1,Bidirectional Unit,Grid,Battery,battery,123
+WANDSF1,Wandoan Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,159
+WANDSF2,Wandoan Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,310
+WARWSF1,Warwick Solar Farm 1,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,39
+WARWSF2,Warwick Solar Farm 2,QLD1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,39
+WATERLWF,Waterloo Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,130.8
+WAUBRAWF,Waubra Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,192
+WDBESS1,Western Downs Battery Energy Storage System,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,272.48
+WDBESS2,Western Downs Battery Energy Storage System (BESS),QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,269.8
+WDGPH1,Western Downs GPH,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,501
+WDLNGN01,Woodlawn Bioreactor Energy Generation Station,NSW1,Generating Unit,Landfill Methane / Landfill Gas,Compression Reciprocating Engine,bioenergy,7
+WELLSF1,Wellington Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,216
+WELNSF1,Wellington North Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,436
+WEMENSF1,Wemen Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,97.5
+WESTILL1,West Illawarra Leagues Club Plant,NSW1,Generating Unit,Diesel,Compression Reciprocating Engine,distillate,1
+WGWF1,Willogoleche Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,122
+WHILL1,Windy Hill Wind Farm,QLD1,Generating Unit,Wind,Wind - Onshore,wind,12
+WHIT1,Whitwood Road Renewable Energy Facility,QLD1,Generating Unit,Landfill Methane / Landfill Gas,Compression Reciprocating Engine,bioenergy,1
+WHITSF1,Whitsunday Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,57.5
+WILGAPK,Wilga Park Power Station,NSW1,Generating Unit,Coal Seam Methane,Spark Ignition Reciprocating Engine,coal_black,10
+WILGB01,Wilga Park B,NSW1,Generating Unit,Coal Seam Methane,Spark Ignition Reciprocating Engine,coal_black,12
+WILLHOV1,William Hovell Power Station,VIC1,Generating Unit,Water,Run of River,hydro,1.5
+WINGF1_1,Wingfield 1 Landfill Gas Power Station,SA1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,4.12
+WINGF2_1,Wingfield 2 Landfill Gas Power Station,SA1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,4.12
+WINTSF1,Winton Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,107
+WKIEWA1,West Kiewa Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,31
+WKIEWA2,West Kiewa Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,31
+WLWLSF1,Walla Walla Solar Farm 1,NSW1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,201.6
+WLWLSF2,Walla Walla Solar Farm 2,NSW1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,201.6
+WNSF1,Wangaratta Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,26.4
+WOLARSF1,Wollar Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,324
+WOLLERT1,Wollert Renewable Energy Facility,VIC1,Generating Unit,Landfill Methane / Landfill Gas,Spark Ignition Reciprocating Engine,bioenergy,7
+WONWP,Wonthaggi Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,12
+WOODLWN1,Woodlawn Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,48.3
+WOOLES1,Woolooga BESS,QLD1,Bidirectional Unit,Grid,Battery and Inverter,battery,280
+WOOLGSF1,Woolooga Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,222.5
+WOOLNTH1,Woolnorth Studland Bay / Bluff Point Wind Farm,TAS1,Generating Unit,Wind,Wind - Onshore,wind,140
+WPWF,Wattle Point Wind Farm,SA1,Generating Unit,Wind,Wind - Onshore,wind,90.75
+WRSF1,White Rock Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Flat Panel,solar,22
+WRWF1,White Rock Wind Farm,NSW1,Generating Unit,Wind,Wind - Onshore,wind,175
+WSTWYSF1,West Wyalong Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat Panel,solar,105
+WTAHB1,Waratah Super Battery,NSW1,Bidirectional Unit,Grid,Battery and Inverter,battery,1095.84
+WUNUSF1,Wunghnu Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,93.5
+WYANGALA,Wyangala A Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,20
+WYANGALB,Wyangala B Power Station,NSW1,Generating Unit,Water,Hydro - Gravity,hydro,4
+WYASF1,Wyalong Solar Farm,NSW1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,62
+YABULU,Townsville Gas Turbine,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,160
+YABULU2,Townsville Gas Turbine,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,82
+YAMBUKWF,Yambuk Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,30
+YARANSF1,Yarranlea Solar Farm,QLD1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,121
+YARWUN_1,Yarwun Power Station,QLD1,Generating Unit,Natural Gas,Combined Cycle Gas Turbine (CCGT),gas_ccgt,154
+YATSF1,Yatpool Solar Farm,VIC1,Generating Unit,Solar,Photovoltaic Tracking Flat panel,solar,94
+YAWWF1,Yawong Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,7.2
+YENDWF1,Yendon Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,144.4
+YSWF1,Yaloak South Wind Farm,VIC1,Generating Unit,Wind,Wind - Onshore,wind,28.7
+YWNGAHYD,Yarrawonga Hydro Power Station,VIC1,Generating Unit,Water,Hydro - Gravity,hydro,9
+YWPS1,Yallourn 'W' Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,360
+YWPS2,Yallourn 'W' Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,360
+YWPS3,Yallourn 'W' Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,380
+YWPS4,Yallourn 'W' Power Station,VIC1,Generating Unit,Brown Coal,Steam Sub-Critical,coal_brown,380

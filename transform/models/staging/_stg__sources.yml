@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: aemo
+    description: >
+      Raw AEMO public market data landed by the GridLens ingestion scripts into
+      the DuckDB `raw` schema. Source: AEMO (aemo.com.au), used non-commercially.
+    schema: raw
+    tables:
+      - name: price_demand
+        description: >
+          AEMO "Aggregated price and demand" — one row per NEM region per
+          settlement interval (30-min before Oct 2021, 5-min after).
+        columns:
+          - name: region
+            description: "NEM region id, e.g. NSW1."
+          - name: settlement_date
+            description: "Interval timestamp (interval-ending)."
+          - name: rrp_aud_mwh
+            description: "Regional Reference Price, A$/MWh."
+          - name: total_demand_mw
+            description: "Operational demand, MW."
+          - name: source_file
+            description: "Originating CSV path (provenance)."
+      - name: dispatch_unit_scada
+        description: >
+          AEMO MMSDM DISPATCH_UNIT_SCADA — per-DUID 5-minute metered generation (MW).
+        columns:
+          - name: settlement_date
+            description: "Interval-ending timestamp (5-minute)."
+          - name: duid
+            description: "Dispatchable unit identifier."
+          - name: scada_mw
+            description: "Metered generation, MW (negative = battery/pumped-hydro charging)."

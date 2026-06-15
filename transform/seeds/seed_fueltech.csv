@@ -1,0 +1,15 @@
+fueltech,fueltech_label,fuel_group,is_renewable,emission_factor_t_co2_per_mwh
+coal_brown,Brown coal,fossil,false,1.20
+coal_black,Black coal,fossil,false,0.90
+gas_steam,Gas (steam),fossil,false,0.70
+gas_ocgt,Gas (OCGT),fossil,false,0.60
+gas_recip,Gas (reciprocating),fossil,false,0.60
+gas_other,Gas (other),fossil,false,0.55
+gas_ccgt,Gas (CCGT),fossil,false,0.37
+distillate,Distillate / oil,fossil,false,0.85
+bioenergy,Bioenergy,renewable,true,0.0
+hydro,Hydro,renewable,true,0.0
+wind,Wind,renewable,true,0.0
+solar,Solar (utility),renewable,true,0.0
+battery,Battery storage,storage,false,0.0
+other,Other / unknown,other,false,0.0

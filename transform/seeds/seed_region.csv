@@ -1,0 +1,6 @@
+region_id,region_name,state,timezone
+NSW1,New South Wales,NSW,Australia/Sydney
+QLD1,Queensland,QLD,Australia/Brisbane
+VIC1,Victoria,VIC,Australia/Melbourne
+SA1,South Australia,SA,Australia/Adelaide
+TAS1,Tasmania,TAS,Australia/Hobart

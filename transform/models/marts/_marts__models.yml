@@ -1,0 +1,204 @@
+version: 2
+
+models:
+  - name: dim_region
+    description: "NEM region dimension (one row per region)."
+    columns:
+      - name: region_id
+        description: "NEM region id (primary key)."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: fct_price_demand
+    description: >
+      Atomic price & demand fact — one row per region per settlement interval,
+      at the native resolution (30-min pre-Oct-2021, 5-min after).
+    columns:
+      - name: price_demand_id
+        description: "Surrogate key (region + settlement_date)."
+        data_tests:
+          - not_null
+          - unique
+      - name: region
+        description: "NEM region id."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: settlement_date
+        data_tests:
+          - not_null
+      - name: rrp_aud_mwh
+        description: "Regional Reference Price, A$/MWh."
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -1000
+                max_value: 21000
+
+  - name: fct_region_daily
+    description: >
+      Daily per-region rollup: price stats, negative-price frequency, and demand
+      avg/peak. Consistent daily grain across the 30-min and 5-min settlement eras.
+    columns:
+      - name: region
+        description: "NEM region id."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: settlement_day
+        description: "Calendar day."
+        data_tests:
+          - not_null
+      - name: negative_price_pct
+        description: "Share of the day's intervals that cleared below A$0/MWh."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, settlement_day]
+
+  - name: dim_fueltech
+    description: "Fuel-tech dimension: renewable flag + estimated emission factor."
+    columns:
+      - name: fueltech
+        data_tests:
+          - not_null
+          - unique
+      - name: is_renewable
+        data_tests:
+          - not_null
+
+  - name: dim_duid
+    description: "Dispatchable unit dimension (DUID -> region, fuel-tech) from AEMO registration."
+    columns:
+      - name: duid
+        data_tests:
+          - not_null
+          - unique
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: fueltech
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_fueltech')
+                field: fueltech
+
+  - name: fct_generation
+    description: >
+      Generation energy by region x fuel-tech x 30-min interval (positive output
+      only; charging excluded).
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: fueltech
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_fueltech')
+                field: fueltech
+      - name: interval_start
+        data_tests:
+          - not_null
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, fueltech, interval_start]
+
+  - name: fct_generation_daily
+    description: "Daily generation energy (MWh) by region x fuel-tech."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, fueltech, settlement_day]
+
+  - name: fct_region_energy_daily
+    description: >
+      Daily per-region utility-scale renewable share (%) and estimated carbon
+      intensity (kg CO2-e/MWh). Excludes behind-the-meter rooftop PV.
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: renewable_share_pct
+        description: "Utility-scale renewable share of generation."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, settlement_day]
+
+  - name: fct_demand_forecast
+    description: "7-day-ahead daily demand forecast per region per model (+ 90% interval)."
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: model
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["SeasonalNaive", "AutoETS", "MSTL"]
+      - name: forecast_date
+        data_tests:
+          - not_null
+      - name: predicted_demand_mw
+        data_tests:
+          - not_null
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, model, forecast_date]
+
+  - name: fct_forecast_accuracy
+    description: "Rolling-origin backtest metrics (MAE/RMSE/MAPE) per region per model."
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: mape
+        description: "Mean absolute percentage error over the backtest windows."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, model]

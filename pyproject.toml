@@ -1,0 +1,20 @@
+[project]
+name = "gridlens"
+version = "0.1.0"
+description = "Analytics-engineering pipeline on Australia's National Electricity Market (AEMO -> DuckDB -> dbt -> Evidence.dev)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-duckdb>=1.10.1",
+    "duckdb>=1.5.3",
+    "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "statsforecast>=2.0.3",
+]
+
+[project.scripts]
+gridlens = "gridlens:main"
+
+[build-system]
+requires = ["uv_build>=0.11.6,<0.12.0"]
+build-backend = "uv_build"

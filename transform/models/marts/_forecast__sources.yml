@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: forecast
+    description: >
+      Model outputs written back to DuckDB by gridlens.forecast_demand
+      (statsforecast). Pipeline order: dbt build -> forecast_demand -> dbt build.
+    schema: forecast
+    tables:
+      - name: demand_forecast
+        description: "7-day-ahead daily demand forecast per region per model (+ 90% interval)."
+      - name: forecast_accuracy
+        description: "Rolling-origin backtest metrics (MAE/RMSE/MAPE) per region per model."

@@ -1,0 +1,87 @@
+name: refresh
+
+# Daily: pull fresh AEMO data -> dbt -> forecast -> export -> Evidence build
+# -> deploy the static dashboard to Cloudflare Pages.
+on:
+  schedule:
+    - cron: "30 18 * * *" # ~04:30 AEST daily
+  workflow_dispatch: {}
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  # Absolute path so dbt (run via --project-dir) and the Python scripts agree.
+  GRIDLENS_DUCKDB_PATH: ${{ github.workspace }}/data/gridlens.duckdb
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: reports/package-lock.json
+
+      # Restores cached AEMO downloads so only new months are fetched.
+      - name: Cache raw AEMO data
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: rawdata-${{ github.run_id }}
+          restore-keys: rawdata-
+
+      - name: Install Python deps (and Python 3.12)
+        run: uv sync
+
+      - name: Ingest AEMO price & demand
+        run: uv run python -m gridlens.ingest_price_demand
+
+      - name: Build DUID->fuel seed + ingest generation
+        run: |
+          uv run python -m gridlens.build_duid_fueltech_seed
+          uv run python -m gridlens.ingest_generation
+
+      - name: dbt deps
+        run: uv run dbt deps --project-dir transform --profiles-dir transform
+
+      - name: dbt build (excluding forecast marts)
+        run: >
+          uv run dbt build --project-dir transform --profiles-dir transform
+          --exclude fct_demand_forecast fct_forecast_accuracy
+
+      - name: Train demand forecast
+        run: uv run python -m gridlens.forecast_demand
+
+      - name: dbt build (full) + export marts
+        run: |
+          uv run dbt build --project-dir transform --profiles-dir transform
+          uv run python -m gridlens.export_marts
+
+      - name: Build Evidence dashboard
+        working-directory: reports
+        run: |
+          npm ci
+          npm run sources
+          npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy reports/build --project-name=gridlens --branch=main

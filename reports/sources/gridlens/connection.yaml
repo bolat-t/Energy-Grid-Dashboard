@@ -1,0 +1,4 @@
+name: gridlens
+type: duckdb
+options:
+  filename: ../../../data/gridlens.duckdb

@@ -1,0 +1,12 @@
+# Safe to commit: the DuckDB target holds no secrets, and the (later) Snowflake
+# target reads every credential from environment variables.
+gridlens:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Defaults to the repo's DuckDB file when dbt is run from transform/.
+      # Override with GRIDLENS_DUCKDB_PATH (e.g. an absolute path in CI).
+      path: "{{ env_var('GRIDLENS_DUCKDB_PATH', '../data/gridlens.duckdb') }}"
+      schema: main
+      threads: 4

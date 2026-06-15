@@ -1,0 +1,29 @@
+version: 2
+
+seeds:
+  - name: seed_region
+    description: "NEM region reference: code, name, state, timezone."
+    columns:
+      - name: region_id
+        description: "NEM region id (primary key)."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: seed_fueltech
+    description: "Fuel-tech reference: renewable flag + estimated emission factor (curated)."
+    columns:
+      - name: fueltech
+        description: "Normalised fuel-tech key (primary key)."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: seed_duid_fueltech
+    description: "DUID -> fuel-tech mapping, generated from AEMO's Registration & Exemption List."
+    columns:
+      - name: duid
+        description: "Dispatchable unit identifier (primary key)."
+        data_tests:
+          - not_null
+          - unique
