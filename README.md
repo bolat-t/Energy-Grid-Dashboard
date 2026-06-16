@@ -10,6 +10,10 @@ across the five NEM regions (NSW, QLD, VIC, SA, TAS).
 > Portfolio project 2 of 3 — analytics-engineering lane. (Project 1, *Global Pulse*,
 > is an AI/RAG news-intelligence agent.)
 
+## Architecture
+
+![GridLens architecture](docs/architecture.svg)
+
 ## Stack
 
 | Layer | Choice | Why |
@@ -64,8 +68,8 @@ Attribution: data sourced from AEMO. © AEMO. Used for non-commercial, education
 - [x] **Phase 5 — Deploy + automate.** CI/CD built & verified: `.github/workflows/refresh.yml`
       runs the full pipeline daily and deploys to **Cloudflare Pages**; static build verified
       (196 files). One-time GitHub + Cloudflare setup in [DEPLOY.md](DEPLOY.md). *(awaiting your repo + secrets)*
-- [ ] **Phase 6 — Snowflake run + polish.** Documented dbt-on-Snowflake build; SVG
-      architecture diagram; findings write-up.
+- [x] **Phase 6 — Polish.** SVG architecture diagram (above), a [findings write-up](FINDINGS.md),
+      and a dbt-on-**Snowflake** target + [credibility-run guide](SNOWFLAKE.md) for the 30-day trial.
 
 ## Quickstart
 

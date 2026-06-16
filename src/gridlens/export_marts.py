@@ -28,6 +28,8 @@ QUERIES: dict[str, str] = {
     "demand_forecast": "select * from marts.fct_demand_forecast",
     "forecast_accuracy": "select * from marts.fct_forecast_accuracy",
     "dim_region": "select * from marts.dim_region",
+    # raw price & demand too, for the optional Snowflake credibility run (SNOWFLAKE.md)
+    "raw_price_demand": "select * from raw.price_demand",
 }
 
 

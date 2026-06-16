@@ -10,3 +10,17 @@ gridlens:
       path: "{{ env_var('GRIDLENS_DUCKDB_PATH', '../data/gridlens.duckdb') }}"
       schema: main
       threads: 4
+
+    # Optional "credibility run" target — dbt against Snowflake's 30-day trial.
+    # All credentials come from environment variables (see .env.example / SNOWFLAKE.md).
+    # Requires: uv add dbt-snowflake
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', '') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', '') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD', '') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'TRANSFORM') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'GRIDLENS_WH') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'GRIDLENS') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'ANALYTICS') }}"
+      threads: 4
