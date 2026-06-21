@@ -1,4 +1,6 @@
-# GridLens — Australia's electricity-market transition, modelled end-to-end
+# Energy Grid Dashboard
+
+*Australia's electricity-market transition, modelled end-to-end — repo codename `gridlens`.*
 
 An analytics-engineering pipeline over Australia's **National Electricity Market (NEM)**:
 public AEMO market data → a clean dimensional model in **dbt** → a forecast → a
