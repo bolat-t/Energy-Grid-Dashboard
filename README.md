@@ -9,6 +9,16 @@ deployed **Evidence.dev** dashboard, refreshed daily by a GitHub Actions cron.
 The story: **how the rise of renewables is reshaping price, demand, and carbon intensity**
 across the five NEM regions (NSW, QLD, VIC, SA, TAS).
 
+### 🔗 Live
+
+| | |
+|---|---|
+| **Dashboard** | https://bolat-t.github.io/gridlens/ |
+| **dbt docs & lineage** | https://bolat-t.github.io/gridlens/dbt/index.html |
+| **Findings write-up** | [FINDINGS.md](FINDINGS.md) |
+
+Rebuilt and redeployed daily by [GitHub Actions](.github/workflows/refresh.yml).
+
 > Portfolio project 2 of 3 — analytics-engineering lane. (Project 1, *Global Pulse*,
 > is an AI/RAG news-intelligence agent.)
 

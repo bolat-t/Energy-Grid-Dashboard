@@ -2,56 +2,59 @@
 
 The dashboard is a static Evidence.dev site. A GitHub Actions workflow
 ([`.github/workflows/refresh.yml`](.github/workflows/refresh.yml)) runs the full
-pipeline daily and deploys to **Cloudflare Pages**:
+pipeline daily and publishes it:
 
 ```
-ingest (AEMO) → dbt build → forecast → export → Evidence build → wrangler deploy
+ingest (AEMO) → dbt build → forecast → export → dbt docs → Evidence build → deploy
 ```
 
-Everything below is free (GitHub public repo + Cloudflare Pages free tier).
+Everything here is free (public GitHub repo + Pages).
 
-## 1. Push the repo to GitHub
+## Current setup — already live ✅
 
-```bash
-cd "gridlens"
-git add -A
-git commit -m "GridLens: AEMO → dbt → forecast → Evidence dashboard"
-gh repo create gridlens --public --source=. --remote=origin --push
-# or: create an empty public repo on github.com, then:
-#   git remote add origin https://github.com/<you>/gridlens.git && git push -u origin main
-```
+| | |
+|---|---|
+| Repo | https://github.com/bolat-t/gridlens |
+| Dashboard | https://bolat-t.github.io/gridlens/ |
+| dbt docs | https://bolat-t.github.io/gridlens/dbt/index.html |
 
-## 2. Create the Cloudflare Pages project (once)
+**GitHub Pages** is enabled with *GitHub Actions* as the source, so no secrets or extra
+accounts are needed. The workflow runs daily at ~04:30 AEST, and can be triggered any time
+with `Actions → refresh → Run workflow` (or `gh workflow run refresh`).
 
-Either via the dashboard (Workers & Pages → Create → Pages → **Direct Upload** →
-name it `gridlens`) or the CLI:
+> Because Pages serves the site from `/gridlens`, the workflow appends
+> `deployment.basePath` to `evidence.config.yaml` before building. Without it every asset
+> URL 404s.
+
+The **first run takes ~10–15 min** (it back-fills ~21 months of generation SCADA). Later
+runs restore the `data/raw` cache and only fetch new months.
+
+## Optional — also publish to Cloudflare Pages
+
+The workflow already contains the Cloudflare steps; they **skip automatically** unless
+`CLOUDFLARE_API_TOKEN` is set, so nothing breaks by ignoring this.
+
+To enable it and get a `gridlens.pages.dev` URL:
+
+1. Create the project (once):
 
 ```bash
 npx wrangler login
 npx wrangler pages project create gridlens --production-branch main
 ```
 
-This gives you `https://gridlens.pages.dev` (it can coexist with your other
-Cloudflare Pages projects — the free plan allows many).
-
-## 3. Add two GitHub repo secrets
-
-`Settings → Secrets and variables → Actions → New repository secret`:
+2. Add two repo secrets — `Settings → Secrets and variables → Actions`:
 
 | Secret | Where to get it |
 |---|---|
 | `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create Token → **"Cloudflare Pages — Edit"** template |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard URL, or `npx wrangler whoami` |
 
-## 4. Run it
-
-`Actions → refresh → Run workflow` (manual trigger) for the first deploy, then it
-runs daily on the cron. The **first run is slow (~10–15 min)** — it back-fills
-~21 months of generation SCADA. Later runs reuse the cached downloads and only
-fetch new months.
+The workflow then builds twice — once with the base path for Pages, once at the root path
+for Cloudflare — and deploys to both.
 
 ## Notes
 - No data is committed: `data/` is gitignored and rebuilt in CI each run.
-- AEMO needs no API key. `.env` (Snowflake only) stays gitignored.
-- To deploy elsewhere instead (GitHub Pages / Netlify), swap the final step;
-  the build output is `reports/build/`.
+- AEMO needs no API key. `.env` (Snowflake only) stays gitignored and untracked.
+- The Snowflake ML results are committed as dbt seeds, so the dashboard keeps working
+  after the Snowflake trial lapses (see [SNOWFLAKE.md](SNOWFLAKE.md)).
