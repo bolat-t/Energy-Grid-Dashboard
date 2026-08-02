@@ -72,6 +72,14 @@ jobs:
           uv run dbt build --project-dir transform --profiles-dir transform
           uv run python -m gridlens.export_marts
 
+      # Self-contained docs site, published alongside the dashboard at /dbt/.
+      # Generated against DuckDB here so the docs track the live daily pipeline.
+      - name: Generate dbt docs
+        run: |
+          uv run dbt docs generate --project-dir transform --profiles-dir transform --static
+          mkdir -p reports/static/dbt
+          cp transform/target/static_index.html reports/static/dbt/index.html
+
       - name: Build Evidence dashboard
         working-directory: reports
         run: |

@@ -25,6 +25,7 @@ across the five NEM regions (NSW, QLD, VIC, SA, TAS).
 | | **Snowflake** (verified run) | the same dbt project builds on Snowflake — 27 tests green, marts identical to DuckDB ([details](SNOWFLAKE.md)) |
 | **Transform** | **dbt Core** | staging → marts, tests, docs, lineage — the centerpiece |
 | **Forecast** | `statsforecast` | 7-day demand forecast per region, backtested vs a seasonal baseline |
+| **Warehouse ML** | `SNOWFLAKE.ML` | in-database `FORECAST` benchmarked against Python; `ANOMALY_DETECTION` on price |
 | **Dashboard** | **Evidence.dev** (primary) | code-based BI, git-versioned, deploys free as a static site — the automated public deliverable |
 | | **Power BI** (secondary) | polished report over the same marts on a Windows PC; the near-mandatory AU analyst tool; manual refresh, $0 |
 | **Orchestration** | GitHub Actions cron | daily refresh of the whole chain |
@@ -73,6 +74,10 @@ Attribution: data sourced from AEMO. © AEMO. Used for non-commercial, education
 - [x] **Phase 6 — Polish.** SVG architecture diagram (above), a [findings write-up](FINDINGS.md),
       and a **dbt-on-Snowflake run** — executed and verified: `PASS=27, ERROR=0`, marts
       **byte-identical to the DuckDB build**, 0.03 credits. See [SNOWFLAKE.md](SNOWFLAKE.md).
+- [x] **Phase 7 — Warehouse ML.** `SNOWFLAKE.ML.FORECAST` benchmarked against the Python
+      models on an identical train/holdout split, and `SNOWFLAKE.ML.ANOMALY_DETECTION` used to
+      flag unusual price days. Results committed as seeds so they outlive the trial. The
+      **dbt docs + lineage graph** now deploy publicly alongside the dashboard at `/dbt/`.
 
 ## Quickstart
 

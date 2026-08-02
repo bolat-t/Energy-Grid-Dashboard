@@ -67,3 +67,12 @@ order by gwh desc
 - [Price & demand](/prices) — trends, the 2022 crisis, negative prices
 - [Carbon intensity](/carbon) — estimated emissions by region
 - [Demand forecast](/forecast) — 7-day forecast + backtest accuracy
+- [Warehouse ML](/warehouse-ml) — Snowflake ML vs Python, and price anomaly detection
+
+## How it's built
+
+AEMO public data → Python ingest (`uv`) → **DuckDB** → **dbt** (3 dims, 7 facts, 85 tests)
+→ **statsforecast** → this **Evidence.dev** site, refreshed daily by a GitHub Actions cron.
+The same dbt project also builds on **Snowflake**, verified to produce identical marts.
+
+<LinkButton url="/dbt/index.html">Browse the dbt docs & lineage graph →</LinkButton>

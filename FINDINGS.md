@@ -37,6 +37,35 @@ dbt marts.
 - **AutoETS** and **MSTL** beat a seasonal-naive baseline by **16–31%** in every region,
   capturing both weekly (weekday/weekend) and annual seasonality.
 
+## 6. In-warehouse ML is competitive — but not uniformly
+
+`SNOWFLAKE.ML.FORECAST` and the Python models were trained on identical history
+(2020-06-01 → 2026-05-24) and scored on the **same held-out 7 days**.
+
+| Model | Engine | Avg MAPE |
+|---|---|---|
+| `SNOWFLAKE.ML.FORECAST` | Snowflake | **3.34%** |
+| AutoETS | Python | 4.01% |
+| MSTL | Python | 4.57% |
+| SeasonalNaive | Python (baseline) | 6.35% |
+
+Snowflake ML wins on average and is much stronger on the small, volatile regions — in South
+Australia it more than halves AutoETS's error (1.94% vs 5.53%). Python's AutoETS still wins
+the two large, stable series (NSW 2.04%, QLD 3.30%). **Caveat:** a single 7-day holdout
+(35 predictions) is suggestive, not conclusive — unlike the 6-window rolling backtest in §5.
+
+## 7. Anomaly detection rediscovers real market events
+
+`SNOWFLAKE.ML.ANOMALY_DETECTION` learned a 2020-2024 per-region price baseline, then scored
+2025 onward: **54 of 2,585 region-days (2.1%)** flagged. The ranking matches the renewables
+story — SA (22) and VIC (17) lead; NSW and QLD have 2 each.
+
+- **26 Jan 2026 — South Australia cleared $2,457/MWh vs $75 expected** (summer heatwave on a
+  public holiday).
+- **12 and 26 June 2025 flag in VIC, SA *and* TAS simultaneously** — the model independently
+  picked out NEM-wide winter evening peaks, evidence it's detecting market physics rather
+  than per-series noise.
+
 ## Method & honesty notes
 - **Utility-scale only:** generation is NEMWEB dispatch SCADA; it excludes rooftop PV.
 - **Estimated carbon:** indicative per-fuel emission factors (`seed_fueltech.csv`), not

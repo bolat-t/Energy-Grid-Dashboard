@@ -181,6 +181,56 @@ models:
           arguments:
             combination_of_columns: [region, model, forecast_date]
 
+  - name: fct_engine_benchmark
+    description: >
+      Snowflake ML FORECAST vs Python statsforecast on an identical train/holdout
+      split — one row per region per model.
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: engine
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["Snowflake ML", "Python"]
+      - name: mape
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, model]
+
+  - name: fct_price_anomalies
+    description: >
+      Daily average price vs a Snowflake ML baseline band, with an is_anomaly flag.
+    columns:
+      - name: region
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_id
+      - name: settlement_day
+        data_tests:
+          - not_null
+      - name: is_anomaly
+        data_tests:
+          - not_null
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [region, settlement_day]
+
   - name: fct_forecast_accuracy
     description: "Rolling-origin backtest metrics (MAE/RMSE/MAPE) per region per model."
     columns:
