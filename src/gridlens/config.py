@@ -50,12 +50,17 @@ AEMO_PRICE_DEMAND_URL = (
     "PRICE_AND_DEMAND_{yyyymm}_{region}.csv"
 )
 
-# Generation by unit: MMSDM monthly DISPATCH_UNIT_SCADA archive (per-DUID 5-min
-# MW). NEMWEB encodes the literal '#' in the filename as '%2523' in the URL path.
-AEMO_SCADA_URL = (
+# Generation by unit: MMSDM monthly DISPATCH_UNIT_SCADA archive (per-DUID 5-min MW).
+#
+# These filenames contain literal '#' characters, and NEMWEB serves the encoding
+# differently depending on which CDN edge answers: some regions publish (and only
+# accept) '%2523' (double-encoded), others '%23'. Constructing the URL therefore
+# works from one location and 404s from another. We scrape the month's directory
+# listing and follow the href it gives us instead — correct from anywhere.
+NEMWEB_BASE = "https://nemweb.com.au"
+AEMO_SCADA_DIR_URL = (
     "https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/{year}/"
     "MMSDM_{year}_{month}/MMSDM_Historical_Data_SQLLoader/DATA/"
-    "PUBLIC_ARCHIVE%2523DISPATCH_UNIT_SCADA%2523FILE01%2523{yyyymm}010000.zip"
 )
 
 # --- Ingest window -------------------------------------------------------

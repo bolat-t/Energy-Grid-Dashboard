@@ -12,6 +12,7 @@ Run: uv run python -m gridlens.ingest_generation
 
 from __future__ import annotations
 
+import re
 import shutil
 import sys
 import zipfile
@@ -27,8 +28,31 @@ RAW_SCADA_DIR = config.RAW_DIR / "dispatch_unit_scada"
 USER_AGENT = "Mozilla/5.0 (GridLens analytics-engineering portfolio)"
 
 
-def _url(yyyymm: str) -> str:
-    return config.AEMO_SCADA_URL.format(year=yyyymm[:4], month=yyyymm[4:], yyyymm=yyyymm)
+SCADA_HREF_RE = re.compile(
+    r'href="([^"]*DISPATCH_UNIT_SCADA[^"]*\.zip)"', re.IGNORECASE
+)
+
+
+def resolve_url(client: httpx.Client, yyyymm: str) -> str | None:
+    """Find the month's DISPATCH_UNIT_SCADA zip by reading the directory listing.
+
+    The filenames contain '#', which NEMWEB percent-encodes inconsistently across
+    CDN edges ('%2523' in some regions, '%23' in others) — a constructed URL that
+    works locally can 404 from CI. Taking the href from the listing sidesteps it.
+    Returns None when the month isn't published yet.
+    """
+    listing = config.AEMO_SCADA_DIR_URL.format(year=yyyymm[:4], month=yyyymm[4:])
+    try:
+        resp = client.get(listing)
+        if resp.status_code != 200:
+            return None
+    except httpx.HTTPError:
+        return None
+    match = SCADA_HREF_RE.search(resp.text)
+    if not match:
+        return None
+    href = match.group(1)
+    return href if href.startswith("http") else config.NEMWEB_BASE + href
 
 
 def _zip_path(yyyymm: str) -> Path:
@@ -46,8 +70,11 @@ def download_month(client: httpx.Client, yyyymm: str) -> str:
     zp = _zip_path(yyyymm)
     if zp.exists() and zp.stat().st_size > 0:
         return "cached"
+    url = resolve_url(client, yyyymm)
+    if url is None:
+        return "missing"
     try:
-        resp = client.get(_url(yyyymm))
+        resp = client.get(url)
         if resp.status_code == 404:
             return "missing"
         resp.raise_for_status()
