@@ -71,8 +71,9 @@ order by gwh desc
 
 ## How it's built
 
-AEMO public data → Python ingest (`uv`) → **DuckDB** → **dbt** (3 dims, 7 facts, 85 tests)
-→ **statsforecast** → this **Evidence.dev** site, refreshed daily by a GitHub Actions cron.
+AEMO public data → Python ingest (`uv`) → **DuckDB** → **dbt** (3 dimensions, 9 facts,
+68 tests) → **statsforecast** → this **Evidence.dev** site, rebuilt daily by a GitHub
+Actions cron.
 The same dbt project also builds on **Snowflake**, verified to produce identical marts.
 
 <LinkButton url="/dbt/index.html">Browse the dbt docs & lineage graph →</LinkButton>
