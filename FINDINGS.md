@@ -29,8 +29,14 @@ dbt marts.
 ## 4. Price — the 2022 crisis and a volatile recovery
 - Monthly average prices spiked to **~$400/MWh in mid-2022** (coal-unit outages + a global
   gas-price spike, which briefly triggered AEMO to suspend the spot market).
-- The data spans the market's bounds: a **−$1,000 floor** and the indexed **market price cap**,
-  which climbed **$10,034 (2020) → $20,300 (2025–26)**.
+- The data spans the market's bounds: a **−$1,000 floor** (regulated, stable) and the
+  **market price cap**, which AEMO re-indexes every 1 July and which has climbed relentlessly:
+  **$10,034 (2020) → $15,100 (2021) → $16,600 (2023) → $17,500 (2024) → $20,300 (2025–26) →
+  $23,200 (FY2026-27)**.
+- The new cap is not theoretical: **Tasmania cleared at exactly $23,200/MWh on 13 July 2026,
+  16:20** — a winter evening peak hitting the ceiling within a fortnight of it taking effect.
+  The daily pipeline caught this on its first cloud run, when a range test written against the
+  old cap failed.
 
 ## 5. Demand is forecastable
 - 7-day-ahead daily demand forecast (`statsforecast`): **MAPE 3–7%** (NSW/QLD ~3%, SA ~7%).

@@ -35,10 +35,17 @@ models:
         description: "Regional Reference Price, A$/MWh."
         data_tests:
           - not_null
+          # Bounds are a corruption guard, not a forecast of the market cap.
+          # The floor (-$1,000) is regulated and stable. The cap is re-indexed by
+          # AEMO every 1 July and has climbed steadily: $15.1k (2021) -> $16.6k
+          # (2023) -> $17.5k (2024) -> $20.3k (2025) -> $23.2k (FY2026-27, first
+          # hit by TAS1 on 2026-07-13). A ceiling pinned near the current cap
+          # breaks every July, so this is set well above it — high enough to
+          # still catch scale errors (a 10x fault would read ~$232k).
           - dbt_utils.accepted_range:
               arguments:
                 min_value: -1000
-                max_value: 21000
+                max_value: 40000
 
   - name: fct_region_daily
     description: >
