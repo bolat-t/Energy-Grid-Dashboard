@@ -1,7 +1,7 @@
 name: refresh
 
 # Daily: pull fresh AEMO data -> dbt -> forecast -> export -> Evidence build
-# -> deploy the static dashboard to Cloudflare Pages.
+# -> publish the dashboard (GitHub Pages always; Cloudflare Pages if configured).
 on:
   schedule:
     - cron: "30 18 * * *" # ~04:30 AEST daily
@@ -13,15 +13,19 @@ concurrency:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 env:
   # Absolute path so dbt (run via --project-dir) and the Python scripts agree.
   GRIDLENS_DUCKDB_PATH: ${{ github.workspace }}/data/gridlens.duckdb
+  # Empty unless the Cloudflare secrets are set; used to skip that deploy.
+  CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
 jobs:
-  refresh:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -73,23 +77,55 @@ jobs:
           uv run python -m gridlens.export_marts
 
       # Self-contained docs site, published alongside the dashboard at /dbt/.
-      # Generated against DuckDB here so the docs track the live daily pipeline.
+      # Generated against DuckDB so the docs track the live daily pipeline.
       - name: Generate dbt docs
         run: |
           uv run dbt docs generate --project-dir transform --profiles-dir transform --static
           mkdir -p reports/static/dbt
           cp transform/target/static_index.html reports/static/dbt/index.html
 
-      - name: Build Evidence dashboard
+      - name: Install dashboard deps + cache sources
         working-directory: reports
         run: |
           npm ci
           npm run sources
+
+      # GitHub Pages serves this repo at /<repo>, so the site needs a base path.
+      - name: Build dashboard for GitHub Pages
+        working-directory: reports
+        run: |
+          printf '\ndeployment:\n  basePath: /%s\n' "${GITHUB_REPOSITORY#*/}" >> evidence.config.yaml
+          npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/build
+
+      # Cloudflare serves at the domain root, so rebuild without the base path.
+      # Skipped entirely until CLOUDFLARE_API_TOKEN is set.
+      - name: Rebuild for Cloudflare (root path)
+        if: env.CF_TOKEN != ''
+        working-directory: reports
+        run: |
+          git checkout -- evidence.config.yaml
           npm run build
 
       - name: Deploy to Cloudflare Pages
+        if: env.CF_TOKEN != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy reports/build --project-name=gridlens --branch=main
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
