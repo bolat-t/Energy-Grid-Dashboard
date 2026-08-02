@@ -22,7 +22,7 @@ across the five NEM regions (NSW, QLD, VIC, SA, TAS).
 |---|---|---|
 | **Ingestion** | Python + `httpx` (managed by `uv`) | AEMO public CSVs, no API key |
 | **Warehouse** | **DuckDB** (primary) | Free, Mac-native, always-on so the live pipeline never expires |
-| | **Snowflake** (documented run) | dbt also runs against Snowflake during its 30-day trial — résumé credit, captured with docs/screenshots |
+| | **Snowflake** (verified run) | the same dbt project builds on Snowflake — 27 tests green, marts identical to DuckDB ([details](SNOWFLAKE.md)) |
 | **Transform** | **dbt Core** | staging → marts, tests, docs, lineage — the centerpiece |
 | **Forecast** | `statsforecast` | 7-day demand forecast per region, backtested vs a seasonal baseline |
 | **Dashboard** | **Evidence.dev** (primary) | code-based BI, git-versioned, deploys free as a static site — the automated public deliverable |
@@ -71,7 +71,8 @@ Attribution: data sourced from AEMO. © AEMO. Used for non-commercial, education
       runs the full pipeline daily and deploys to **Cloudflare Pages**; static build verified
       (196 files). One-time GitHub + Cloudflare setup in [DEPLOY.md](DEPLOY.md). *(awaiting your repo + secrets)*
 - [x] **Phase 6 — Polish.** SVG architecture diagram (above), a [findings write-up](FINDINGS.md),
-      and a dbt-on-**Snowflake** target + [credibility-run guide](SNOWFLAKE.md) for the 30-day trial.
+      and a **dbt-on-Snowflake run** — executed and verified: `PASS=27, ERROR=0`, marts
+      **byte-identical to the DuckDB build**, 0.03 credits. See [SNOWFLAKE.md](SNOWFLAKE.md).
 
 ## Quickstart
 

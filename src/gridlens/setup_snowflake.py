@@ -106,11 +106,15 @@ def main() -> None:
         cur.execute(f"use database {database}")
         cur.execute("use schema raw")
 
+        # Land the timestamp as text and cast it server-side. Sending pandas
+        # datetime64[ns] through write_pandas lets Snowflake read the epoch value
+        # at the wrong scale (dates land in the year ~52,000,000), so the string
+        # round-trip is the reliable path.
         cur.execute(
             """
-            create or replace table price_demand (
+            create or replace table price_demand_load (
                 region varchar,
-                settlement_date timestamp_ntz,
+                settlement_date varchar,
                 total_demand_mw double,
                 rrp_aud_mwh double,
                 period_type varchar,
@@ -124,7 +128,9 @@ def main() -> None:
         ddb = duckdb.connect()
         df = ddb.execute(
             f"""
-            select region, settlement_date, total_demand_mw, rrp_aud_mwh,
+            select region,
+                   strftime(settlement_date, '%Y-%m-%d %H:%M:%S') as settlement_date,
+                   total_demand_mw, rrp_aud_mwh,
                    period_type, source_month, source_file
             from read_parquet('{EXPORT}')
             """
@@ -134,12 +140,29 @@ def main() -> None:
 
         print(f"loading {len(df):,} rows into {database}.RAW.PRICE_DEMAND...")
         ok, nchunks, nrows, _ = write_pandas(
-            con, df, "PRICE_DEMAND", schema="RAW", database=database,
+            con, df, "PRICE_DEMAND_LOAD", schema="RAW", database=database,
             quote_identifiers=False, chunk_size=250_000,
         )
         if not ok:
             sys.exit("load failed")
         print(f"  loaded {nrows:,} rows in {nchunks} chunks")
+
+        print("casting timestamps into the final table...")
+        cur.execute(
+            """
+            create or replace table price_demand as
+            select
+                region,
+                to_timestamp_ntz(settlement_date, 'YYYY-MM-DD HH24:MI:SS') as settlement_date,
+                total_demand_mw,
+                rrp_aud_mwh,
+                period_type,
+                source_month,
+                source_file
+            from price_demand_load
+            """
+        )
+        cur.execute("drop table if exists price_demand_load")
 
         cur.execute("select count(*), min(settlement_date), max(settlement_date) from price_demand")
         n, mn, mx = cur.fetchone()

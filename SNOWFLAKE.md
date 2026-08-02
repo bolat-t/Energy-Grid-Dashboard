@@ -49,12 +49,41 @@ raw price & demand and verifies the count. It's idempotent — safe to re-run.
 ```bash
 set -a && source .env && set +a
 uv run dbt build --project-dir transform --profiles-dir transform --target snowflake \
+  --indirect-selection=cautious \
   --select seed_region dim_region stg_price_demand fct_price_demand fct_region_daily
 uv run dbt docs generate --project-dir transform --profiles-dir transform --target snowflake
 ```
 
+> `--indirect-selection=cautious` matters. By default dbt is *eager*: it also runs
+> `relationships` tests belonging to the generation/forecast models (which reference
+> `dim_region` but don't exist on Snowflake), and those 5 tests fail. Cautious mode runs
+> only tests whose parents are all selected.
+
 Capture for the portfolio: the green `dbt build` against Snowflake, the lineage graph from
 `dbt docs`, and a Snowsight screenshot of `GRIDLENS.MARTS.FCT_REGION_DAILY`.
+
+## Verified result (run 2026-08-02)
+
+`dbt build --target snowflake` → **PASS=27, ERROR=0** (1 seed, 1 view, 3 tables, 22 tests).
+
+| Object | Rows |
+|---|---|
+| `GRIDLENS.RAW.PRICE_DEMAND` | 2,570,640 |
+| `GRIDLENS.STAGING.STG_PRICE_DEMAND` | view |
+| `GRIDLENS.MARTS.FCT_PRICE_DEMAND` | 2,570,640 |
+| `GRIDLENS.MARTS.FCT_REGION_DAILY` | 10,960 |
+| `GRIDLENS.MARTS.DIM_REGION` | 5 |
+
+The marts were diffed against the DuckDB build — 2025 rows per region, average RRP,
+negative-price share and peak demand are **identical on both warehouses**. Total cost:
+**0.0264 credits** (a few cents).
+
+### Gotcha worth knowing
+
+Loading pandas `datetime64[ns]` through `write_pandas` into a `TIMESTAMP_NTZ` column makes
+Snowflake read the epoch value at the wrong scale — dates land in the year ~52,000,000.
+`setup_snowflake.py` avoids this by landing `settlement_date` as text and casting with
+`TO_TIMESTAMP_NTZ` server-side.
 
 ## 5. Stop the meter
 
