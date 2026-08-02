@@ -1,7 +1,7 @@
 name: diagnose-nemweb
 
-# Temporary: determine why nemweb.com.au returns 404 from GitHub runners while
-# aemo.com.au works. Delete once resolved.
+# Temporary: nemweb.com.au directory listings return 200 from GitHub runners but
+# the SCADA zip 404s. Determine which '#' encoding that CDN edge accepts.
 on:
   workflow_dispatch: {}
 
@@ -9,46 +9,38 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Where is this runner?
-        run: curl -s https://ipinfo.io/json | head -20 || true
-
-      - name: aemo.com.au (known-good host)
+      - name: What href does the listing actually serve here?
         run: |
-          curl -sIL -A "Mozilla/5.0 (GridLens)" \
-            "https://aemo.com.au/aemo/data/nem/priceanddemand/PRICE_AND_DEMAND_202605_NSW1.csv" \
-            | grep -iE "^HTTP/|content-type|content-length" || true
+          curl -sL -A "Mozilla/5.0 (GridLens)" \
+            "https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_03/MMSDM_Historical_Data_SQLLoader/DATA/" \
+            -o listing.html
+          echo "listing bytes: $(wc -c < listing.html)"
+          echo "--- href containing DISPATCH_UNIT_SCADA ---"
+          grep -oiE 'href="[^"]*DISPATCH_UNIT_SCADA[^"]*"' listing.html | head -2 || echo "  (none found)"
 
-      - name: nemweb.com.au directory listing
+      - name: Try each encoding of '#'
         run: |
-          curl -sIL -A "Mozilla/5.0 (GridLens)" \
-            "https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/" \
-            | grep -iE "^HTTP/|content-type|server|cf-|x-" || true
+          BASE="https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_03/MMSDM_Historical_Data_SQLLoader/DATA"
+          FILE_2523="PUBLIC_ARCHIVE%2523DISPATCH_UNIT_SCADA%2523FILE01%2523202503010000.zip"
+          FILE_23="PUBLIC_ARCHIVE%23DISPATCH_UNIT_SCADA%23FILE01%23202503010000.zip"
+          for f in "$FILE_2523" "$FILE_23"; do
+            echo "--- $f ---"
+            curl -sIL --path-as-is -o /dev/null \
+              -w "  http=%{http_code} size=%{size_download} type=%{content_type}\n" \
+              -A "Mozilla/5.0 (GridLens)" "$BASE/$f" || true
+          done
 
-      - name: nemweb.com.au SCADA zip (the failing request)
+      - name: Try the exact href from the listing
         run: |
-          URL="https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_03/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%2523DISPATCH_UNIT_SCADA%2523FILE01%2523202503010000.zip"
-          echo "--- default UA ---"
-          curl -sIL -o /dev/null -w "http=%{http_code} size=%{size_download}\n" "$URL" || true
-          echo "--- browser UA ---"
-          curl -sIL -o /dev/null -w "http=%{http_code} size=%{size_download}\n" \
-            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" "$URL" || true
-          echo "--- first 200 bytes of body (default UA) ---"
-          curl -sL -A "Mozilla/5.0 (GridLens)" "$URL" | head -c 200 | tr -d '\0' || true
-          echo ""
-
-      - name: python httpx (exactly what the ingest uses)
-        run: |
-          python -m pip install -q httpx
-          python - <<'PY'
-          import httpx
-          url = ("https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/"
-                 "MMSDM_2025_03/MMSDM_Historical_Data_SQLLoader/DATA/"
-                 "PUBLIC_ARCHIVE%2523DISPATCH_UNIT_SCADA%2523FILE01%2523202503010000.zip")
-          with httpx.Client(timeout=60, follow_redirects=True,
-                            headers={"User-Agent": "Mozilla/5.0 (GridLens)"}) as c:
-              r = c.get(url)
-              print("status:", r.status_code)
-              print("final url:", str(r.url))
-              print("content-type:", r.headers.get("content-type"))
-              print("body head:", r.content[:200])
-          PY
+          HREF=$(grep -oiE 'href="[^"]*DISPATCH_UNIT_SCADA[^"]*"' listing.html | head -1 | sed 's/^[hH][rR][eE][fF]="//; s/"$//')
+          echo "href: $HREF"
+          if [ -n "$HREF" ]; then
+            case "$HREF" in
+              http*) URL="$HREF" ;;
+              *)     URL="https://nemweb.com.au$HREF" ;;
+            esac
+            echo "resolved: $URL"
+            curl -sIL --path-as-is -o /dev/null \
+              -w "  http=%{http_code} size=%{size_download} type=%{content_type}\n" \
+              -A "Mozilla/5.0 (GridLens)" "$URL" || true
+          fi
