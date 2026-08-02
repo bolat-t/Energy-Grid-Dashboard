@@ -1,4 +1,4 @@
-# Deploying GridLens
+# Deploying the Energy Grid Dashboard
 
 The dashboard is a static Evidence.dev site. A GitHub Actions workflow
 ([`.github/workflows/refresh.yml`](.github/workflows/refresh.yml)) runs the full

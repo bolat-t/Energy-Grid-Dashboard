@@ -1,4 +1,4 @@
-# GridLens — findings
+# Energy Grid Dashboard — findings
 
 What the model says about Australia's National Electricity Market. Coverage: price
 & demand **Jun 2020 – May 2026** (30-min until Oct 2021, 5-min after); utility-scale

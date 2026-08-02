@@ -1,5 +1,5 @@
 ---
-title: GridLens — Australia's NEM at a glance
+title: Energy Grid Dashboard — Australia's NEM at a glance
 ---
 
 How renewables are reshaping price, demand, and carbon intensity across the five
