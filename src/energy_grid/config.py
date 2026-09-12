@@ -27,7 +27,7 @@ def _find_project_root(start: Path) -> Path:
 PROJECT_ROOT = _find_project_root(Path(__file__).resolve())
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"
-DUCKDB_PATH = DATA_DIR / "gridlens.duckdb"
+DUCKDB_PATH = DATA_DIR / "energy_grid.duckdb"
 
 # --- NEM scope -----------------------------------------------------------
 # National Electricity Market regions (excludes WA's WEM and the NT).
@@ -66,10 +66,10 @@ AEMO_SCADA_DIR_URL = (
 # --- Ingest window -------------------------------------------------------
 # How many complete calendar months of history to pull (env-overridable so the
 # cron can pull a short window while a backfill can pull years).
-HISTORY_MONTHS: int = int(os.environ.get("GRIDLENS_HISTORY_MONTHS", "72"))
+HISTORY_MONTHS: int = int(os.environ.get("ENERGY_GRID_HISTORY_MONTHS", "72"))
 
 # Generation history (heavier per-DUID SCADA) defaults shorter than price/demand.
-GENERATION_MONTHS: int = int(os.environ.get("GRIDLENS_GENERATION_MONTHS", "24"))
+GENERATION_MONTHS: int = int(os.environ.get("ENERGY_GRID_GENERATION_MONTHS", "24"))
 
 
 def recent_months(n: int, *, end: date | None = None) -> list[str]:

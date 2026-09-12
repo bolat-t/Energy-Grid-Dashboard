@@ -1,11 +1,11 @@
 # Deploying the Energy Grid Dashboard
 
-The dashboard is a static Evidence.dev site. A GitHub Actions workflow
+The dashboard is a static site built from the dbt marts. A GitHub Actions workflow
 ([`.github/workflows/refresh.yml`](.github/workflows/refresh.yml)) runs the full
 pipeline daily and publishes it:
 
 ```
-ingest (AEMO) → dbt build → forecast → export → dbt docs → Evidence build → deploy
+ingest (AEMO) → dbt build → forecast → export → dbt docs → site build → deploy
 ```
 
 Everything here is free (public GitHub repo + Pages).
@@ -14,16 +14,16 @@ Everything here is free (public GitHub repo + Pages).
 
 | | |
 |---|---|
-| Repo | https://github.com/bolat-t/gridlens |
-| Dashboard | https://bolat-t.github.io/gridlens/ |
-| dbt docs | https://bolat-t.github.io/gridlens/dbt/index.html |
+| Repo | https://github.com/bolat-t/Energy-Grid-Dashboard |
+| Dashboard | https://bolat-t.github.io/Energy-Grid-Dashboard/ |
+| dbt docs | https://bolat-t.github.io/Energy-Grid-Dashboard/dbt/index.html |
 
 **GitHub Pages** is enabled with *GitHub Actions* as the source, so no secrets or extra
 accounts are needed. The workflow runs daily at ~04:30 AEST, and can be triggered any time
 with `Actions → refresh → Run workflow` (or `gh workflow run refresh`).
 
-> Because Pages serves the site from `/gridlens`, the workflow appends
-> `deployment.basePath` to `evidence.config.yaml` before building. Without it every asset
+> Because Pages serves the site from `/Energy-Grid-Dashboard`, the workflow appends
+> `deployment.basePath` to the site config before building. Without it every asset
 > URL 404s.
 
 The **first run takes ~10–15 min** (it back-fills ~21 months of generation SCADA). Later
@@ -34,13 +34,13 @@ runs restore the `data/raw` cache and only fetch new months.
 The workflow already contains the Cloudflare steps; they **skip automatically** unless
 `CLOUDFLARE_API_TOKEN` is set, so nothing breaks by ignoring this.
 
-To enable it and get a `gridlens.pages.dev` URL:
+To enable it and get an `energy-grid-dashboard.pages.dev` URL:
 
 1. Create the project (once):
 
 ```bash
 npx wrangler login
-npx wrangler pages project create gridlens --production-branch main
+npx wrangler pages project create energy-grid-dashboard --production-branch main
 ```
 
 2. Add two repo secrets — `Settings → Secrets and variables → Actions`:

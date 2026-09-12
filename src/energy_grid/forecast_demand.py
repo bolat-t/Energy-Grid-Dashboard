@@ -9,7 +9,7 @@ baseline, then writes back to DuckDB:
 dbt then serves these as marts (fct_demand_forecast, fct_forecast_accuracy), so
 the run order in the pipeline is: dbt build -> this script -> dbt build.
 
-Run: uv run python -m gridlens.forecast_demand
+Run: uv run python -m energy_grid.forecast_demand
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ import pandas as pd
 from statsforecast import StatsForecast
 from statsforecast.models import AutoETS, MSTL, SeasonalNaive
 
-from gridlens import config
+from energy_grid import config
 
 HORIZON = 7  # days ahead
 N_WINDOWS = 6  # rolling-origin backtest windows (each HORIZON days)

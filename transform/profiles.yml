@@ -1,13 +1,13 @@
 # Safe to commit: the DuckDB target holds no secrets, and the (later) Snowflake
 # target reads every credential from environment variables.
-gridlens:
+energy_grid:
   target: dev
   outputs:
     dev:
       type: duckdb
       # Defaults to the repo's DuckDB file when dbt is run from transform/.
-      # Override with GRIDLENS_DUCKDB_PATH (e.g. an absolute path in CI).
-      path: "{{ env_var('GRIDLENS_DUCKDB_PATH', '../data/gridlens.duckdb') }}"
+      # Override with ENERGY_GRID_DUCKDB_PATH (e.g. an absolute path in CI).
+      path: "{{ env_var('ENERGY_GRID_DUCKDB_PATH', '../data/energy_grid.duckdb') }}"
       schema: main
       threads: 4
 
@@ -20,7 +20,7 @@ gridlens:
       user: "{{ env_var('SNOWFLAKE_USER', '') }}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD', '') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE', 'TRANSFORM') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'GRIDLENS_WH') }}"
-      database: "{{ env_var('SNOWFLAKE_DATABASE', 'GRIDLENS') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'ENERGY_GRID_WH') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'ENERGY_GRID') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'ANALYTICS') }}"
       threads: 4

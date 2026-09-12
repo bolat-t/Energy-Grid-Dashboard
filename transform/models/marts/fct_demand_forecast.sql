@@ -1,5 +1,5 @@
 -- 7-day-ahead daily demand forecast per region per model, with 90% interval.
--- Produced by gridlens.forecast_demand (statsforecast); served here for the dashboard.
+-- Produced by energy_grid.forecast_demand (statsforecast); served here for the dashboard.
 with f as (
 
     select * from {{ source('forecast', 'demand_forecast') }}

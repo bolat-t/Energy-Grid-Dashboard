@@ -36,11 +36,11 @@ Find `SNOWFLAKE_ACCOUNT` in Snowsight: bottom-left account menu → **View accou
 ## 3. Create everything + load the data (one command)
 
 ```bash
-uv run python -m gridlens.export_marts      # if data/exports/ isn't fresh
-uv run python -m gridlens.setup_snowflake
+uv run python -m energy_grid.export_marts      # if data/exports/ isn't fresh
+uv run python -m energy_grid.setup_snowflake
 ```
 
-This creates the warehouse (XSMALL, auto-suspend 60 s), the `GRIDLENS` database and `RAW`
+This creates the warehouse (XSMALL, auto-suspend 60 s), the `ENERGY_GRID` database and `RAW`
 schema, a **resource monitor** capping usage at 50 credits/month, then loads ~2.57M rows of
 raw price & demand and verifies the count. It's idempotent — safe to re-run.
 
@@ -60,19 +60,22 @@ uv run dbt docs generate --project-dir transform --profiles-dir transform --targ
 > only tests whose parents are all selected.
 
 Capture for the portfolio: the green `dbt build` against Snowflake, the lineage graph from
-`dbt docs`, and a Snowsight screenshot of `GRIDLENS.MARTS.FCT_REGION_DAILY`.
+`dbt docs`, and a Snowsight screenshot of `ENERGY_GRID.MARTS.FCT_REGION_DAILY`.
 
-## Verified result (run 2026-08-02)
+## Verified result (run 2 Aug 2026)
+
+The trial has since expired and the warehouse with it. The forecast and anomaly results
+from this run are committed as dbt seeds, so the dashboard keeps working without it.
 
 `dbt build --target snowflake` → **PASS=27, ERROR=0** (1 seed, 1 view, 3 tables, 22 tests).
 
 | Object | Rows |
 |---|---|
-| `GRIDLENS.RAW.PRICE_DEMAND` | 2,570,640 |
-| `GRIDLENS.STAGING.STG_PRICE_DEMAND` | view |
-| `GRIDLENS.MARTS.FCT_PRICE_DEMAND` | 2,570,640 |
-| `GRIDLENS.MARTS.FCT_REGION_DAILY` | 10,960 |
-| `GRIDLENS.MARTS.DIM_REGION` | 5 |
+| `ENERGY_GRID.RAW.PRICE_DEMAND` | 2,570,640 |
+| `ENERGY_GRID.STAGING.STG_PRICE_DEMAND` | view |
+| `ENERGY_GRID.MARTS.FCT_PRICE_DEMAND` | 2,570,640 |
+| `ENERGY_GRID.MARTS.FCT_REGION_DAILY` | 10,960 |
+| `ENERGY_GRID.MARTS.DIM_REGION` | 5 |
 
 The marts were diffed against the DuckDB build — 2025 rows per region, average RRP,
 negative-price share and peak demand are **identical on both warehouses**. Total cost:
@@ -91,7 +94,7 @@ The XS warehouse auto-suspends after 60 s of idle, and the resource monitor is a
 When you're done:
 
 ```sql
-alter warehouse gridlens_wh suspend;
+alter warehouse energy_grid_wh suspend;
 ```
 
 Or just let the trial lapse — the live DuckDB pipeline is completely unaffected.

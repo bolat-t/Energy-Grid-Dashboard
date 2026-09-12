@@ -5,7 +5,7 @@ Loads" sheet, classifies each dispatchable unit (DUID) into a normalised
 fuel-tech, and writes transform/seeds/seed_duid_fueltech.csv (joined to the
 curated seed_fueltech reference downstream in dbt).
 
-Run: uv run python -m gridlens.build_duid_fueltech_seed
+Run: uv run python -m energy_grid.build_duid_fueltech_seed
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ from collections import Counter
 import httpx
 from openpyxl import load_workbook
 
-from gridlens import config
+from energy_grid import config
 
 REG_URL = (
     "https://www.aemo.com.au/-/media/files/electricity/nem/"
@@ -26,7 +26,7 @@ REG_URL = (
 SHEET = "PU and Scheduled Loads"
 RAW_REG_DIR = config.RAW_DIR / "registration"
 SEED_PATH = config.PROJECT_ROOT / "transform" / "seeds" / "seed_duid_fueltech.csv"
-USER_AGENT = "Mozilla/5.0 (GridLens analytics-engineering portfolio)"
+USER_AGENT = "Mozilla/5.0 (Energy Grid Dashboard analytics-engineering portfolio)"
 
 
 def classify_fueltech(fuel_desc: str | None, tech_desc: str | None) -> str:

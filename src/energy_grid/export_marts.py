@@ -4,14 +4,14 @@ This decouples Evidence.dev from the DuckDB storage format / connector version:
 Evidence reads these Parquet files (version-independent) instead of opening the
 warehouse file directly. Part of the pipeline: ... -> dbt build -> export_marts.
 
-Run: uv run python -m gridlens.export_marts
+Run: uv run python -m energy_grid.export_marts
 """
 
 from __future__ import annotations
 
 import duckdb
 
-from gridlens import config
+from energy_grid import config
 
 EXPORT_DIR = config.DATA_DIR / "exports"
 

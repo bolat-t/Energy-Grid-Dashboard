@@ -8,8 +8,8 @@
   <rect x="0" y="0" width="1000" height="400" fill="#ffffff"/>
 
   <!-- header -->
-  <text x="24" y="30" font-size="19" font-weight="700" fill="#1f2d3d">GridLens — architecture</text>
-  <text x="24" y="50" font-size="12" fill="#5b6b7b">Australia's National Electricity Market: AEMO public data &#8594; dbt &#8594; forecast &#8594; Evidence dashboard, refreshed daily.</text>
+  <text x="24" y="30" font-size="19" font-weight="700" fill="#1f2d3d">Energy Grid Dashboard — architecture</text>
+  <text x="24" y="50" font-size="12" fill="#5b6b7b">Australia's National Electricity Market: AEMO public data &#8594; dbt &#8594; forecast &#8594; dashboard, rebuilt daily.</text>
 
   <!-- stage titles -->
   <text x="108" y="84" font-size="12.5" font-weight="600" fill="#236aa4" text-anchor="middle">AEMO sources (no key)</text>
@@ -47,9 +47,9 @@
 
   <!-- S5 serve -->
   <rect x="782" y="98" width="194" height="42" rx="8" fill="#cfe2f3" stroke="#45a1bf"/>
-  <text x="879" y="124" font-size="11.5" font-weight="600" fill="#1f2d3d" text-anchor="middle">Evidence.dev dashboard</text>
+  <text x="879" y="124" font-size="11.5" font-weight="600" fill="#1f2d3d" text-anchor="middle">Static dashboard</text>
   <rect x="782" y="150" width="194" height="42" rx="8" fill="#cfe2f3" stroke="#45a1bf"/>
-  <text x="879" y="176" font-size="11.5" font-weight="600" fill="#1f2d3d" text-anchor="middle">Cloudflare Pages (live)</text>
+  <text x="879" y="176" font-size="11.5" font-weight="600" fill="#1f2d3d" text-anchor="middle">GitHub Pages (live)</text>
   <rect x="782" y="202" width="194" height="42" rx="8" fill="#eef4fa" stroke="#a5cdee"/>
   <text x="879" y="228" font-size="11.5" fill="#1f2d3d" text-anchor="middle">Power BI (from Parquet)</text>
 
@@ -64,7 +64,7 @@
 
   <!-- orchestration bar -->
   <rect x="24" y="282" width="952" height="44" rx="10" fill="#fdf3e0" stroke="#f4b548" stroke-dasharray="6 4"/>
-  <text x="500" y="309" font-size="12.5" font-weight="600" fill="#8a6d2f" text-anchor="middle">GitHub Actions &#8212; daily cron:  ingest &#8594; dbt build &#8594; forecast &#8594; export &#8594; Evidence build &#8594; deploy</text>
+  <text x="500" y="309" font-size="12.5" font-weight="600" fill="#8a6d2f" text-anchor="middle">GitHub Actions &#8212; daily cron:  ingest &#8594; dbt build &#8594; forecast &#8594; export &#8594; site build &#8594; deploy</text>
 
   <!-- footnotes -->
   <text x="24" y="352" font-size="11" fill="#5b6b7b">Warehouse: DuckDB (always-on, $0) &#8212; dbt also runs on Snowflake (documented 30-day-trial run).</text>

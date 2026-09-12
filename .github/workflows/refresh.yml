@@ -18,7 +18,7 @@ permissions:
 
 env:
   # Absolute path so dbt (run via --project-dir) and the Python scripts agree.
-  GRIDLENS_DUCKDB_PATH: ${{ github.workspace }}/data/gridlens.duckdb
+  ENERGY_GRID_DUCKDB_PATH: ${{ github.workspace }}/data/energy_grid.duckdb
   # Empty unless the Cloudflare secrets are set; used to skip that deploy.
   CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
@@ -53,12 +53,12 @@ jobs:
         run: uv sync
 
       - name: Ingest AEMO price & demand
-        run: uv run python -m gridlens.ingest_price_demand
+        run: uv run python -m energy_grid.ingest_price_demand
 
       - name: Build DUID->fuel seed + ingest generation
         run: |
-          uv run python -m gridlens.build_duid_fueltech_seed
-          uv run python -m gridlens.ingest_generation
+          uv run python -m energy_grid.build_duid_fueltech_seed
+          uv run python -m energy_grid.ingest_generation
 
       - name: dbt deps
         run: uv run dbt deps --project-dir transform --profiles-dir transform
@@ -69,12 +69,12 @@ jobs:
           --exclude fct_demand_forecast fct_forecast_accuracy
 
       - name: Train demand forecast
-        run: uv run python -m gridlens.forecast_demand
+        run: uv run python -m energy_grid.forecast_demand
 
       - name: dbt build (full) + export marts
         run: |
           uv run dbt build --project-dir transform --profiles-dir transform
-          uv run python -m gridlens.export_marts
+          uv run python -m energy_grid.export_marts
 
       # Self-contained docs site, published alongside the dashboard at /dbt/.
       # Generated against DuckDB so the docs track the live daily pipeline.
@@ -117,7 +117,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy reports/build --project-name=gridlens --branch=main
+          command: pages deploy reports/build --project-name=energy-grid-dashboard --branch=main
 
   deploy-pages:
     needs: build

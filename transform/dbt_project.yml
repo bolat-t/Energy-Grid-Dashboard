@@ -1,6 +1,6 @@
-name: "gridlens"
+name: "energy_grid"
 version: "1.0.0"
-profile: "gridlens"
+profile: "energy_grid"
 
 model-paths: ["models"]
 seed-paths: ["seeds"]
@@ -11,7 +11,7 @@ target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 models:
-  gridlens:
+  energy_grid:
     staging:
       +materialized: view
       +schema: staging
@@ -20,5 +20,5 @@ models:
       +schema: marts
 
 seeds:
-  gridlens:
+  energy_grid:
     +schema: staging

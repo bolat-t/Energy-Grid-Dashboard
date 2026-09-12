@@ -1,0 +1,4 @@
+name: energy_grid
+type: duckdb
+options:
+  filename: ../../../data/energy_grid.duckdb

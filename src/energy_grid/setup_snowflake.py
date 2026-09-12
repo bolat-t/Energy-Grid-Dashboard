@@ -8,8 +8,8 @@ Idempotent: safe to re-run. Reads credentials from .env (gitignored) — nothing
 is hard-coded and nothing is printed back except the account/user being used.
 
 Run:
-    uv run python -m gridlens.export_marts        # ensure the Parquet exists
-    uv run python -m gridlens.setup_snowflake
+    uv run python -m energy_grid.export_marts        # ensure the Parquet exists
+    uv run python -m energy_grid.setup_snowflake
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ from pathlib import Path
 
 import duckdb
 
-from gridlens import config
+from energy_grid import config
 
 EXPORT = config.DATA_DIR / "exports" / "raw_price_demand.parquet"
 
@@ -53,11 +53,11 @@ def main() -> None:
     account = os.environ["SNOWFLAKE_ACCOUNT"]
     user = os.environ["SNOWFLAKE_USER"]
     role = os.environ.get("SNOWFLAKE_ROLE", "ACCOUNTADMIN")
-    warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE", "GRIDLENS_WH")
-    database = os.environ.get("SNOWFLAKE_DATABASE", "GRIDLENS")
+    warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE", "ENERGY_GRID_WH")
+    database = os.environ.get("SNOWFLAKE_DATABASE", "ENERGY_GRID")
 
     if not EXPORT.exists():
-        sys.exit(f"Missing {EXPORT}. Run: uv run python -m gridlens.export_marts")
+        sys.exit(f"Missing {EXPORT}. Run: uv run python -m energy_grid.export_marts")
 
     import snowflake.connector
     from snowflake.connector.pandas_tools import write_pandas
@@ -77,7 +77,7 @@ def main() -> None:
         try:
             cur.execute(
                 """
-                create resource monitor if not exists gridlens_rm
+                create resource monitor if not exists energy_grid_rm
                   with credit_quota = 50 frequency = monthly
                   start_timestamp = immediately
                   triggers on 90 percent do suspend
@@ -95,7 +95,7 @@ def main() -> None:
             """
         )
         try:
-            cur.execute(f"alter warehouse {warehouse} set resource_monitor = gridlens_rm")
+            cur.execute(f"alter warehouse {warehouse} set resource_monitor = energy_grid_rm")
         except Exception:  # noqa: BLE001 - monitor may not exist; harmless
             pass
 

@@ -7,7 +7,7 @@ Notes  : MMSDM lags ~1-2 months, so the most recent months 404 and are skipped.
          Monthly zips (~29 MB) are cached for provenance; the ~330 MB CSV inside
          each is extracted to a temp file, loaded, then deleted.
 
-Run: uv run python -m gridlens.ingest_generation
+Run: uv run python -m energy_grid.ingest_generation
 """
 
 from __future__ import annotations
@@ -22,10 +22,10 @@ from pathlib import Path
 import duckdb
 import httpx
 
-from gridlens import config
+from energy_grid import config
 
 RAW_SCADA_DIR = config.RAW_DIR / "dispatch_unit_scada"
-USER_AGENT = "Mozilla/5.0 (GridLens analytics-engineering portfolio)"
+USER_AGENT = "Mozilla/5.0 (Energy Grid Dashboard analytics-engineering portfolio)"
 
 
 SCADA_HREF_RE = re.compile(
@@ -152,7 +152,7 @@ def summarize(con: duckdb.DuckDBPyConnection) -> None:
 
 def main() -> None:
     months = generation_months()
-    print("GridLens ingest — AEMO DISPATCH_UNIT_SCADA (per-DUID 5-min generation)")
+    print("Energy Grid Dashboard ingest — AEMO DISPATCH_UNIT_SCADA (per-DUID 5-min generation)")
     print(f"  window : {months[0]}..{months[-1]} ({len(months)} months)")
     RAW_SCADA_DIR.mkdir(parents=True, exist_ok=True)
 

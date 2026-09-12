@@ -21,13 +21,13 @@ seeds:
 
   - name: seed_engine_benchmark
     description: >
-      Point-in-time result of gridlens.benchmark_snowflake_ml — Snowflake ML
+      Point-in-time result of energy_grid.benchmark_snowflake_ml — Snowflake ML
       FORECAST vs Python statsforecast on an identical train/holdout split.
       Committed so the finding survives the Snowflake trial and CI rebuilds.
 
   - name: seed_price_anomalies
     description: >
-      Point-in-time result of gridlens.detect_price_anomalies —
+      Point-in-time result of energy_grid.detect_price_anomalies —
       SNOWFLAKE.ML.ANOMALY_DETECTION scores against a 2020-2024 baseline.
 
   - name: seed_duid_fueltech

@@ -3,11 +3,11 @@
 Source : AEMO public "Aggregated price and demand" monthly CSVs (one per NEM
          region). No API key required. License: AEMO public data, attributed
          in the README.
-Output : data/gridlens.duckdb -> schema ``raw`` -> table ``price_demand``.
+Output : data/energy_grid.duckdb -> schema ``raw`` -> table ``price_demand``.
          Downloaded CSVs are cached under data/raw/price_demand/ as the
          immutable landing copy (provenance).
 
-Run:  uv run python -m gridlens.ingest_price_demand
+Run:  uv run python -m energy_grid.ingest_price_demand
 """
 
 from __future__ import annotations
@@ -19,11 +19,11 @@ from pathlib import Path
 import duckdb
 import httpx
 
-from gridlens import config
+from energy_grid import config
 
 RAW_PD_DIR = config.RAW_DIR / "price_demand"
 # AEMO's web layer 403s some default clients; a browser-ish UA is reliable.
-USER_AGENT = "Mozilla/5.0 (GridLens analytics-engineering portfolio)"
+USER_AGENT = "Mozilla/5.0 (Energy Grid Dashboard analytics-engineering portfolio)"
 
 
 def _target_path(yyyymm: str, region: str) -> Path:
@@ -142,7 +142,7 @@ def summarize() -> None:
 def main() -> None:
     months = config.recent_months(config.HISTORY_MONTHS)
     regions = config.NEM_REGIONS
-    print("GridLens ingest — AEMO aggregated price & demand (5-min)")
+    print("Energy Grid Dashboard ingest — AEMO aggregated price & demand (5-min)")
     print(f"  window : {months[0]}..{months[-1]} ({len(months)} months)")
     print(f"  regions: {', '.join(regions)}")
     print(f"  files  : {len(months) * len(regions)}\n")

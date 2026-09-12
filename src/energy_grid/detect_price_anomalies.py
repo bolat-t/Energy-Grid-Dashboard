@@ -4,7 +4,7 @@ Trains a per-region baseline on 2020-2024 daily average price, then scores
 2025-onward: days whose price falls outside the model's expected band are
 flagged. Results land in DuckDB `forecast.price_anomalies` for dbt/the dashboard.
 
-Run: uv run python -m gridlens.detect_price_anomalies
+Run: uv run python -m energy_grid.detect_price_anomalies
 """
 
 from __future__ import annotations
@@ -15,8 +15,8 @@ import sys
 import duckdb
 import pandas as pd
 
-from gridlens import config
-from gridlens.setup_snowflake import load_dotenv
+from energy_grid import config
+from energy_grid.setup_snowflake import load_dotenv
 
 TRAIN_END = "2024-12-31"
 
@@ -28,14 +28,14 @@ def main() -> None:
 
     import snowflake.connector
 
-    warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE", "GRIDLENS_WH")
+    warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE", "ENERGY_GRID_WH")
     con = snowflake.connector.connect(
         account=os.environ["SNOWFLAKE_ACCOUNT"],
         user=os.environ["SNOWFLAKE_USER"],
         password=os.environ["SNOWFLAKE_PASSWORD"],
         role=os.environ.get("SNOWFLAKE_ROLE", "ACCOUNTADMIN"),
         warehouse=warehouse,
-        database=os.environ.get("SNOWFLAKE_DATABASE", "GRIDLENS"),
+        database=os.environ.get("SNOWFLAKE_DATABASE", "ENERGY_GRID"),
         schema="MARTS",
     )
     cur = con.cursor()
@@ -51,7 +51,7 @@ def main() -> None:
                 select region,
                        to_timestamp_ntz(settlement_day) as ts,
                        avg_rrp as y
-                from gridlens.marts.fct_region_daily
+                from energy_grid.marts.fct_region_daily
                 where {predicate}
                 """
             )

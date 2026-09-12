@@ -1,5 +1,5 @@
 [project]
-name = "gridlens"
+name = "energy_grid"
 version = "0.1.0"
 description = "Analytics-engineering pipeline on Australia's National Electricity Market (AEMO -> DuckDB -> dbt -> Evidence.dev)"
 readme = "README.md"
@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-gridlens = "gridlens:main"
+energy_grid = "energy_grid:main"
 
 [build-system]
 requires = ["uv_build>=0.11.6,<0.12.0"]

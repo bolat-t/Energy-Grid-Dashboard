@@ -14,7 +14,7 @@ here are comparable to each other, not to that table.
 
 Writes results to DuckDB `forecast.engine_benchmark` for dbt/the dashboard.
 
-Run: uv run python -m gridlens.benchmark_snowflake_ml
+Run: uv run python -m energy_grid.benchmark_snowflake_ml
 """
 
 from __future__ import annotations
@@ -26,8 +26,8 @@ import duckdb
 import numpy as np
 import pandas as pd
 
-from gridlens import config
-from gridlens.setup_snowflake import load_dotenv
+from energy_grid import config
+from energy_grid.setup_snowflake import load_dotenv
 
 HORIZON = 7
 
@@ -79,8 +79,8 @@ def main() -> None:
         user=os.environ["SNOWFLAKE_USER"],
         password=os.environ["SNOWFLAKE_PASSWORD"],
         role=os.environ.get("SNOWFLAKE_ROLE", "ACCOUNTADMIN"),
-        warehouse=os.environ.get("SNOWFLAKE_WAREHOUSE", "GRIDLENS_WH"),
-        database=os.environ.get("SNOWFLAKE_DATABASE", "GRIDLENS"),
+        warehouse=os.environ.get("SNOWFLAKE_WAREHOUSE", "ENERGY_GRID_WH"),
+        database=os.environ.get("SNOWFLAKE_DATABASE", "ENERGY_GRID"),
         schema="MARTS",
     )
     cur = con.cursor()
@@ -89,7 +89,7 @@ def main() -> None:
             f"""
             create or replace view ml_train as
             select region, to_timestamp_ntz(settlement_day) as ts, avg_demand_mw as y
-            from gridlens.marts.fct_region_daily
+            from energy_grid.marts.fct_region_daily
             where interval_count >= 40
               and settlement_day <= date '{cutoff.date()}'
             """
@@ -115,7 +115,7 @@ def main() -> None:
     finally:
         cur.execute("drop view if exists ml_train")
         cur.execute("alter warehouse "
-                    f"{os.environ.get('SNOWFLAKE_WAREHOUSE','GRIDLENS_WH')} suspend")
+                    f"{os.environ.get('SNOWFLAKE_WAREHOUSE','ENERGY_GRID_WH')} suspend")
         cur.close()
         con.close()
 

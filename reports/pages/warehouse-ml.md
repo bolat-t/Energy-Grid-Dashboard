@@ -2,65 +2,79 @@
 title: Warehouse ML
 ---
 
-The same modelled data, run through **Snowflake's in-database ML** — then compared
-honestly against the Python models. Two questions: *can the warehouse forecast as well
-as Python?* and *can it spot unusual market days on its own?*
+Modern cloud databases can run forecasting and anomaly detection *inside the
+database*, from plain SQL, with no model code at all. Snowflake is one of them.
+I already had a forecasting model written in Python, so the obvious question
+was: **is the built-in one any good, and would I trust it?**
 
-## 1. Snowflake ML vs Python — same split, same actuals
+I ran two experiments to find out. Both used the same data as the rest of this
+site.
 
-Both engines trained on identical history (2020-06-01 → 2026-05-24) and predicted the
-**same held-out 7 days**, scored against the same actuals. Lower MAPE is better.
+## Experiment 1 — can the database forecast as well as Python?
+
+The setup is the fairest one I could think of. Both were given the same six
+years of daily demand history for each state, the **final week was hidden from
+both of them**, and both had to predict it. I then measured how far each guess
+was from what really happened, as a percentage. Lower is better.
 
 ```sql bench
 select region_name, model, engine, mape
-from gridlens.engine_benchmark
+from energy_grid.engine_benchmark
 order by region_name, mape
 ```
 
-<BarChart data={bench} x=region_name y=mape series=model type=grouped yAxisTitle="MAPE %" title="Held-out forecast error by engine & region"/>
+<BarChart data={bench} x=region_name y=mape series=model type=grouped yAxisTitle="average error, %" title="How far off each model was, by state"/>
 
 ```sql bench_avg
 select model, engine, round(avg(mape), 2) as avg_mape
-from gridlens.engine_benchmark
+from energy_grid.engine_benchmark
 group by model, engine
 order by avg_mape
 ```
 
 <DataTable data={bench_avg}>
   <Column id=model title="Model"/>
-  <Column id=engine title="Engine"/>
-  <Column id=avg_mape title="Avg MAPE %" fmt=num2 contentType=colorscale scaleColor=red/>
+  <Column id=engine title="Runs in"/>
+  <Column id=avg_mape title="Average error %" fmt=num2 contentType=colorscale scaleColor=red/>
 </DataTable>
 
-**The result is a split decision, which is the interesting part.** Snowflake ML has the
-better average (3.34% vs AutoETS 4.01%) and is markedly stronger on the small, volatile
-regions — in South Australia it more than halves the error. Python's AutoETS still wins the
-two big stable series, NSW and Queensland. Every model beats the seasonal-naive baseline.
+**It was a split decision, which is the honest and interesting result.** Snowflake
+came out ahead on average — about 3.3% error against 4.0% for the best Python
+model — and it was much better in South Australia, where it roughly halved the
+error. But Python still won the two biggest states, New South Wales and
+Queensland. Everything beat the *assume-next-week-is-like-last-week* baseline
+at the bottom of the table.
 
-> Caveat, stated plainly: this is a **single 7-day holdout (35 predictions)** — enough to be
-> suggestive, not enough to be conclusive. The rolling-origin backtest on the
-> [forecast page](/forecast) is the more rigorous test of the Python models.
+One caveat I would rather state than hide: this is a single hidden week, which
+is 35 predictions. Enough to be interesting; not enough to call a winner. The
+six-week test on the [forecast page](/forecast) is the more serious one.
 
-## 2. Anomaly detection — unusual price days
+## Experiment 2 — can the database spot a weird day on its own?
 
-`SNOWFLAKE.ML.ANOMALY_DETECTION` learned a per-region price baseline from 2020-2024, then
-scored every day from 2025 on. It flagged **54 of 2,585 region-days (2.1%)**.
+Anomaly detection is a fancier name for a simple idea: show a model years of
+normal behaviour, then ask it to point at anything that does not fit. I trained
+Snowflake's version on **2020 to 2024** daily prices for each state, then had
+it score every day from 2025 onward.
+
+It flagged **54 days out of 2,585** — about 2% — as not fitting the pattern.
 
 ```sql anom_by_region
 select region_name, sum(case when is_anomaly then 1 else 0 end) as anomalies
-from gridlens.price_anomalies
+from energy_grid.price_anomalies
 group by region_name
 order by anomalies desc
 ```
 
-<BarChart data={anom_by_region} x=region_name y=anomalies swapXY=true yAxisTitle="flagged days" title="Anomalous price days by region (2025+)"/>
+<BarChart data={anom_by_region} x=region_name y=anomalies swapXY=true yAxisTitle="days flagged" title="Unusual price days per state, 2025 onward"/>
 
-The ranking mirrors the renewables story: **South Australia and Victoria** — the most
-weather-exposed grids — throw the most surprises, while NSW and Queensland are stable.
+South Australia and Victoria get the most flags, and they are the two states
+most exposed to weather. New South Wales and Queensland, running steadily on
+coal, barely register. That is the same ranking as the renewables page, arrived
+at by a completely different route, which is reassuring.
 
 ```sql top_anom
 select settlement_day, region_name, avg_rrp, expected_rrp, surprise_aud_mwh
-from gridlens.price_anomalies
+from energy_grid.price_anomalies
 where is_anomaly
 order by distance desc
 limit 10
@@ -68,16 +82,15 @@ limit 10
 
 <DataTable data={top_anom}>
   <Column id=settlement_day title="Date"/>
-  <Column id=region_name title="Region"/>
+  <Column id=region_name title="State"/>
   <Column id=avg_rrp title="Actual $/MWh" fmt=usd0/>
-  <Column id=expected_rrp title="Expected $/MWh" fmt=usd0/>
+  <Column id=expected_rrp title="Model expected" fmt=usd0/>
   <Column id=surprise_aud_mwh title="Surprise" fmt=usd0/>
 </DataTable>
 
-Two patterns stand out, and both are real market events rather than noise:
-
-- **26 Jan 2026 — South Australia cleared $2,457/MWh against an expected $75.** A summer
-  heatwave on a public holiday.
-- **12 and 26 June 2025 flag in Victoria, South Australia *and* Tasmania at once** — the
-  model independently rediscovered NEM-wide winter evening peaks, which is a good sign it's
-  detecting market physics rather than per-series noise.
+The test of an anomaly detector is whether the things it flags are real. These
+were. On **26 January 2026** — a public holiday in a heatwave — South Australia
+cleared **$2,457** against an expected $75. And on **12 and 26 June 2025** it
+flagged Victoria, South Australia and Tasmania on the same evenings, without
+being told they were connected. Those were cold-snap winter peaks that hit the
+whole southern grid at once. It found the weather by looking at the prices.

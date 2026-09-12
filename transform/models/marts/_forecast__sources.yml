@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: forecast
     description: >
-      Model outputs written back to DuckDB by gridlens.forecast_demand
+      Model outputs written back to DuckDB by energy_grid.forecast_demand
       (statsforecast). Pipeline order: dbt build -> forecast_demand -> dbt build.
     schema: forecast
     tables:

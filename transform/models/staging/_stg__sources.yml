@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: aemo
     description: >
-      Raw AEMO public market data landed by the GridLens ingestion scripts into
+      Raw AEMO public market data landed by the Energy Grid Dashboard ingestion scripts into
       the DuckDB `raw` schema. Source: AEMO (aemo.com.au), used non-commercially.
     schema: raw
     tables:
